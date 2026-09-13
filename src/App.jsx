@@ -1,6 +1,7 @@
 import TopBar from './components/TopBar'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
+import OpeningOffer from './components/OpeningOffer'
 import FeelTheHype from './components/FeelTheHype'
 import ArtisanalStack from './components/ArtisanalStack'
 import FeaturedBurgers from './components/FeaturedBurgers'
