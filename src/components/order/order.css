@@ -17,6 +17,42 @@
   white-space: nowrap;
 }
 
+.nav-promo-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--green-dark);
+  background: linear-gradient(135deg, var(--gold), #f7d780);
+  border: none;
+  border-radius: 999px;
+  padding: 7px 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  animation: navPromoPulse 2.2s ease-in-out infinite;
+}
+
+.nav-promo-icon {
+  font-size: 14px;
+}
+
+@keyframes navPromoPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(242, 193, 78, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 0 7px rgba(242, 193, 78, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-promo-btn {
+    animation: none;
+  }
+}
+
 .order-modal-backdrop {
   position: fixed;
   inset: 0;

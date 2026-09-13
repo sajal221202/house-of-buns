@@ -46,7 +46,8 @@ export default function Nav() {
               {l.label}
             </a>
           ))}
-          <button className="nav-link-plain" onClick={() => setPromoOpen(true)}>
+          <button className="nav-promo-btn" onClick={() => setPromoOpen(true)}>
+            <span className="nav-promo-icon">🎁</span>
             Promo Codes
           </button>
           <button className="nav-link-plain" onClick={() => setBoardOpen(true)}>
