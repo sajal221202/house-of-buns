@@ -1,0 +1,54 @@
+import { useEffect, useState } from 'react'
+import Logo from './Logo'
+import OrderModal from './order/OrderModal'
+import CounterBoard from './order/CounterBoard'
+import { useOrder } from '../context/OrderContext'
+
+const LINKS = [
+  { label: 'Home', href: '#top' },
+  { label: 'About', href: '#about' },
+  { label: 'Menu', href: '#menu' },
+  { label: 'Contact', href: '#contact' },
+]
+
+export default function Nav() {
+  const [scrolled, setScrolled] = useState(false)
+  const [boardOpen, setBoardOpen] = useState(false)
+  const { orderModalOpen, openOrderModal, closeOrderModal } = useOrder()
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  return (
+    <header id="top" className={`nav ${scrolled ? 'nav-scrolled' : ''}`}>
+      <div className="wrap nav-inner">
+        <Logo />
+        <nav className="nav-links">
+          {LINKS.map((l) => (
+            <a href={l.href} key={l.label}>
+              {l.label}
+            </a>
+          ))}
+          <button className="nav-link-plain" onClick={() => setBoardOpen(true)}>
+            Counter Board
+          </button>
+        </nav>
+        <button className="btn btn-green nav-order-btn" onClick={openOrderModal}>
+          Order Now
+        </button>
+        <button className="nav-burger" aria-label="Menu">
+          <span />
+          <span />
+          <span />
+        </button>
+      </div>
+
+      {orderModalOpen && <OrderModal onClose={closeOrderModal} />}
+      {boardOpen && <CounterBoard onClose={() => setBoardOpen(false)} />}
+    </header>
+  )
+}
