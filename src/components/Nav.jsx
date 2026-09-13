@@ -49,6 +49,7 @@ export default function Nav() {
           <button className="nav-promo-btn" onClick={() => setPromoOpen(true)}>
             <span className="nav-promo-icon">🎁</span>
             Promo Codes
+            <span className="nav-promo-dot" aria-hidden="true" />
           </button>
           <button className="nav-link-plain" onClick={() => setBoardOpen(true)}>
             Counter Board
