@@ -92,7 +92,8 @@
 
 .nav-links {
   display: none;
-  gap: 34px;
+  gap: 22px;
+  flex-wrap: wrap;
 }
 
 .nav-links a {
