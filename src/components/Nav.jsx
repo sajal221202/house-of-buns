@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import Logo from './Logo'
 import OrderModal from './order/OrderModal'
 import CounterBoard from './order/CounterBoard'
+import PromoCodesModal from './order/PromoCodesModal'
+import FranchiseModal from './order/FranchiseModal'
 import { useOrder } from '../context/OrderContext'
 
 const LINKS = [
@@ -14,6 +16,8 @@ const LINKS = [
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [boardOpen, setBoardOpen] = useState(false)
+  const [promoOpen, setPromoOpen] = useState(false)
+  const [franchiseOpen, setFranchiseOpen] = useState(false)
   const { orderModalOpen, openOrderModal, closeOrderModal } = useOrder()
 
   useEffect(() => {
@@ -33,8 +37,14 @@ export default function Nav() {
               {l.label}
             </a>
           ))}
+          <button className="nav-link-plain" onClick={() => setPromoOpen(true)}>
+            Promo Codes
+          </button>
           <button className="nav-link-plain" onClick={() => setBoardOpen(true)}>
             Counter Board
+          </button>
+          <button className="nav-link-plain" onClick={() => setFranchiseOpen(true)}>
+            Franchise Enquiry
           </button>
         </nav>
         <button className="btn btn-green nav-order-btn" onClick={openOrderModal}>
@@ -49,6 +59,8 @@ export default function Nav() {
 
       {orderModalOpen && <OrderModal onClose={closeOrderModal} />}
       {boardOpen && <CounterBoard onClose={() => setBoardOpen(false)} />}
+      {promoOpen && <PromoCodesModal onClose={() => setPromoOpen(false)} />}
+      {franchiseOpen && <FranchiseModal onClose={() => setFranchiseOpen(false)} />}
     </header>
   )
 }

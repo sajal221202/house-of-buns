@@ -1,0 +1,49 @@
+import { useState } from 'react'
+import heroBurger from '../assets/photos/hero-burger.png'
+import { useOrder } from '../context/OrderContext'
+import PromoCodesModal from './order/PromoCodesModal'
+
+export default function OpeningOffer() {
+  const { openOrderModal } = useOrder()
+  const [promoOpen, setPromoOpen] = useState(false)
+
+  return (
+    <section className="offer">
+      <div className="offer-confetti" aria-hidden="true">
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+      </div>
+      <div className="wrap offer-inner">
+        <div className="offer-photo">
+          <img src={heroBurger} alt="House of Buns burger" loading="lazy" />
+        </div>
+        <div className="offer-copy">
+          <span className="offer-eyebrow">🎉 Now Open</span>
+          <h2 className="display offer-title">
+            Fresh Off The Griddle.
+            <br />
+            <span className="offer-title-accent">Opening Offer.</span>
+          </h2>
+          <p className="offer-sub">
+            Celebrate our grand opening — flat 20% off your first dine-in order this week. Walk in, scan the
+            menu, and taste the hype.
+          </p>
+          <div className="offer-actions">
+            <button className="btn btn-green" onClick={openOrderModal}>
+              Order Now
+            </button>
+            <button className="offer-btn-outline" onClick={() => setPromoOpen(true)}>
+              View Promo Codes
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {promoOpen && <PromoCodesModal onClose={() => setPromoOpen(false)} />}
+    </section>
+  )
+}
