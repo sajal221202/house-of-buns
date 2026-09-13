@@ -68,6 +68,12 @@ export const FLAGSHIP_MAPS_EMBED_SRC =
   encodeURIComponent('House of Buns, G-3, HIG, Ravishankar Main Road, Near MIG Thana, Indore, Madhya Pradesh 452008') +
   '&output=embed'
 
+export const PROMO_CODES = [
+  { code: 'WELCOME10', tag: 'New Customers', desc: 'Flat 10% off your first dine-in order.' },
+  { code: 'COMBO50', tag: 'Combos', desc: '₹50 off any combo above ₹299.' },
+  { code: 'FEASTUP', tag: 'Weekday Special', desc: 'Free Peri Peri Fries with every Feast Combo.' },
+]
+
 export const HYPE_PHOTOS = {
   nutrition: heroBurger,
   quality: burgersTable,
