@@ -125,6 +125,8 @@
 @media (min-width: 760px) {
   .nav-links {
     display: flex;
+    flex: 1;
+    justify-content: center;
   }
   .nav-burger {
     display: none;
