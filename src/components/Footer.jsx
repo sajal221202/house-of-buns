@@ -96,8 +96,11 @@ export default function Footer() {
         </form>
       </div>
 
-      <div className="footer-stores">📍 Proudly serving Indore — dine-in only</div>
-      <div className="footer-bottom">© House of Buns. All rights reserved.</div>
+      <div className="footer-bottom">
+        <span>📍 Proudly serving Indore — dine-in only</span>
+        <span className="footer-bottom-sep">·</span>
+        <span>© House of Buns. All rights reserved.</span>
+      </div>
     </footer>
   )
 }
