@@ -762,3 +762,40 @@
   color: var(--text-muted);
   margin: 8px 0 0;
 }
+
+/* Info modal (FAQ / policies) */
+.info-paragraphs {
+  max-height: 55vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.info-paragraphs p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--near-black);
+  margin: 0;
+}
+
+.info-faq {
+  max-height: 55vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.info-faq-item h3 {
+  font-size: 14.5px;
+  color: var(--near-black);
+  margin: 0 0 6px;
+}
+
+.info-faq-item p {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin: 0;
+}
