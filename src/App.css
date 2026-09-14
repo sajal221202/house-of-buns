@@ -2210,7 +2210,7 @@
 .offer-photo {
   position: relative;
   flex-shrink: 0;
-  width: min(420px, 42vw);
+  width: min(480px, 46vw);
 }
 
 .offer-photo::before {
