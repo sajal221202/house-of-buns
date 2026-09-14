@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import logoBadge from '../assets/logo-badge-green.png'
 import burgerIcon from '../assets/burger-icon.png'
 import heroBurger from '../assets/photos/hero-burger.png'
+import mascotGreen from '../assets/mascot-green.png'
 import { FEATURED_BURGERS, CURRENCY } from '../data/menu'
 
 export default function Hero() {
@@ -70,6 +71,8 @@ export default function Hero() {
           </div>
         </div>
       </div>
+
+      <img src={mascotGreen} alt="House of Buns mascot" className="hero-mascot" />
     </section>
   )
 }
