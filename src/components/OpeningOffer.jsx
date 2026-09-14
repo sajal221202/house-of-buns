@@ -19,7 +19,7 @@ export default function OpeningOffer() {
       </div>
       <div className="wrap offer-inner">
         <div className="offer-photo">
-          <img src={comboCutout} alt="House of Buns burger and fries" loading="lazy" />
+          <img src={comboCutout} alt="House of Buns burger, fries, and a cold drink" loading="lazy" />
         </div>
         <div className="offer-copy">
           <span className="offer-eyebrow">🎉 Now Open</span>

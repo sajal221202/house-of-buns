@@ -11,8 +11,10 @@ import sideCheesyFries from '../assets/photos/side-cheesy-fries.jpg'
 import drinkCoffee from '../assets/photos/drink-coffee.jpg'
 import drinkMint from '../assets/photos/drink-mint.jpg'
 import drinkCola from '../assets/photos/drink-cola.jpg'
-import restaurantInterior from '../assets/photos/restaurant-interior.jpg'
 import heroBurger from '../assets/photos/hero-burger.png'
+import outletCounter from '../assets/photos/outlet-counter.jpg'
+import outletWall from '../assets/photos/outlet-wall.jpg'
+import outletBooth from '../assets/photos/outlet-booth.jpg'
 
 export const CURRENCY = '₹'
 
@@ -54,9 +56,10 @@ export const TESTIMONIALS = [
   { name: 'Christy Nae', location: 'Downtown', title: 'Great Service', quote: 'Customer service is very experienced and satisfactory.', rating: 4, avatar: '👩' },
 ]
 
-export const LOCATIONS = [
-  { label: 'Downtown', zone: 'City Center Counter', photo: restaurantInterior },
-  { label: 'Uptown', zone: 'Northside Counter', photo: burgersTable },
+export const OUTLET_PHOTOS = [
+  { src: outletCounter, alt: 'House of Buns order counter and seating' },
+  { src: outletWall, alt: 'House of Buns retro wall art corner' },
+  { src: outletBooth, alt: 'House of Buns booth seating' },
 ]
 
 export const FLAGSHIP_HOURS = '11:00 AM – 11:00 PM · Daily'

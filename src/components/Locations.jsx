@@ -1,9 +1,9 @@
 import {
-  LOCATIONS,
   FLAGSHIP_HOURS,
   FLAGSHIP_ADDRESS,
   FLAGSHIP_MAPS_SHARE_LINK,
   FLAGSHIP_MAPS_EMBED_SRC,
+  OUTLET_PHOTOS,
 } from '../data/menu'
 import { waLink, RESTAURANT_WHATSAPP_NUMBER } from '../utils/whatsapp'
 
@@ -12,7 +12,7 @@ const DISPLAY_NUMBER = RESTAURANT_WHATSAPP_NUMBER
   ? `+${RESTAURANT_WHATSAPP_NUMBER.slice(0, 2)} ${RESTAURANT_WHATSAPP_NUMBER.slice(2)}`
   : 'Coming soon'
 
-const flagship = LOCATIONS[0]
+const [mainPhoto, ...thumbPhotos] = OUTLET_PHOTOS
 
 export default function Locations() {
   return (
@@ -75,11 +75,20 @@ export default function Locations() {
             </a>
           </div>
 
-          <div className="flagship-photo">
-            <img src={flagship.photo} alt={flagship.label} loading="lazy" />
-            <div className="flagship-photo-caption">
-              <span className="flagship-photo-zone">{flagship.zone}</span>
-              <span className="flagship-photo-label">{flagship.label} Outlet</span>
+          <div className="flagship-gallery">
+            <div className="flagship-photo">
+              <img src={mainPhoto.src} alt={mainPhoto.alt} loading="lazy" />
+              <div className="flagship-photo-caption">
+                <span className="flagship-photo-zone">Real Outlet</span>
+                <span className="flagship-photo-label">Indore Flagship</span>
+              </div>
+            </div>
+            <div className="flagship-thumbs">
+              {thumbPhotos.map((p) => (
+                <div className="flagship-thumb" key={p.src}>
+                  <img src={p.src} alt={p.alt} loading="lazy" />
+                </div>
+              ))}
             </div>
           </div>
         </div>
