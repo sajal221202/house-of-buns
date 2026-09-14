@@ -139,10 +139,10 @@
   position: absolute;
   inset: 0;
   background-image: url('../../assets/pattern-tile.jpg');
-  background-size: 220px 220px;
+  background-size: 200px 200px;
   background-repeat: repeat;
-  opacity: 0.14;
-  mix-blend-mode: overlay;
+  opacity: 0.5;
+  mix-blend-mode: soft-light;
   pointer-events: none;
   z-index: -1;
 }
