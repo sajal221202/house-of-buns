@@ -2073,7 +2073,8 @@
 .offer-photo img {
   width: 100%;
   height: auto;
-  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.4));
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.4)) drop-shadow(0 0 45px rgba(60, 138, 92, 0.55))
+    drop-shadow(0 0 18px rgba(242, 193, 78, 0.25));
 }
 
 .offer-copy {
