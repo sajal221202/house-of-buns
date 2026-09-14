@@ -1,5 +1,6 @@
 import { SIDES } from '../data/menu'
 import { WishlistButton, PrepAndPrice } from './shared/ProductCardBits'
+import CardCarousel from './shared/CardCarousel'
 
 export default function Sides() {
   return (

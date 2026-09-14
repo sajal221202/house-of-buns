@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { FEATURED_BURGERS, CURRENCY } from '../data/menu'
 import MenuBook from './menuBook/MenuBook'
 import { WishlistButton, PrepAndPrice } from './shared/ProductCardBits'
+import CardCarousel from './shared/CardCarousel'
 
 export default function FeaturedBurgers() {
   const [bookOpen, setBookOpen] = useState(false)
@@ -17,8 +18,11 @@ export default function FeaturedBurgers() {
             View all
           </button>
         </div>
-        <div className="featured-grid stagger">
-          {FEATURED_BURGERS.map((item) => (
+        <CardCarousel
+          items={FEATURED_BURGERS}
+          perView={3}
+          gridClassName="featured-grid stagger"
+          renderItem={(item) => (
             <div className="featured-item" key={item.name} data-reveal>
               <div className="featured-photo">
                 <img src={item.photo} alt={item.name} loading="lazy" />
@@ -31,8 +35,8 @@ export default function FeaturedBurgers() {
               <h3>{item.name}</h3>
               <PrepAndPrice item={item} />
             </div>
-          ))}
-        </div>
+          )}
+        />
       </div>
 
       {bookOpen && <MenuBook onClose={() => setBookOpen(false)} />}
