@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import comboCutout from '../assets/photos/combo-cutout.png'
+import comboCutout from '../assets/photos/combo-cutout-2.png'
 import { useOrder } from '../context/OrderContext'
 import PromoCodesModal from './order/PromoCodesModal'
 
