@@ -8,12 +8,6 @@ export default function ArtisanalStack() {
 
   return (
     <section className="stack" id="craft">
-      <div className="seam-word seam-word-light" aria-hidden="true">
-        HOUSE OF BUNS
-      </div>
-      <div className="seam-word seam-word-dark" aria-hidden="true">
-        HOUSE OF BUNS
-      </div>
       <div className="wrap">
         <div className="stack-head">
           <span className="stack-eyebrow" data-reveal>

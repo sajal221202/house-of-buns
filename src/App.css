@@ -501,7 +501,7 @@
   left: 0;
   right: 0;
   top: 0;
-  transform: translateY(calc(-50% + 45px));
+  transform: translateY(calc(-50% + 110px));
   text-align: center;
   font-family: var(--font-display);
   font-size: clamp(60px, 12vw, 160px);
