@@ -496,31 +496,6 @@
   padding: 80px 0 60px;
 }
 
-.seam-word {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  transform: translateY(calc(-50% + 110px));
-  text-align: center;
-  font-family: var(--font-display);
-  font-size: clamp(60px, 12vw, 160px);
-  color: transparent;
-  white-space: nowrap;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.seam-word-light {
-  -webkit-text-stroke: 1.5px rgba(247, 236, 217, 0.22);
-  clip-path: inset(0 0 50% 0);
-}
-
-.seam-word-dark {
-  -webkit-text-stroke: 1.5px rgba(31, 107, 63, 0.16);
-  clip-path: inset(50% 0 0 0);
-}
-
 .hype-inner {
   position: relative;
 }

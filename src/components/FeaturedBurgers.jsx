@@ -8,9 +8,6 @@ export default function FeaturedBurgers() {
 
   return (
     <section id="menu" className="featured">
-      <div className="featured-bgword" aria-hidden="true">
-        HOUSE OF BUNS
-      </div>
       <div className="wrap">
         <div className="featured-head">
           <h2 className="display featured-title">
