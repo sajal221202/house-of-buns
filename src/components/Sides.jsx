@@ -16,8 +16,11 @@ export default function Sides() {
             every bite!
           </span>
         </div>
-        <div className="sides-grid stagger">
-          {SIDES.map((item) => (
+        <CardCarousel
+          items={SIDES}
+          perView={3}
+          gridClassName="sides-grid stagger"
+          renderItem={(item) => (
             <div className="side-card" key={item.name} data-reveal>
               <div className="side-photo">
                 <img src={item.photo} alt={item.name} loading="lazy" />
@@ -26,8 +29,8 @@ export default function Sides() {
               <h3>{item.name}</h3>
               <PrepAndPrice item={item} />
             </div>
-          ))}
-        </div>
+          )}
+        />
       </div>
     </section>
   )
