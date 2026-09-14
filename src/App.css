@@ -2068,7 +2068,7 @@
 .offer-photo {
   position: relative;
   flex-shrink: 0;
-  width: min(320px, 36vw);
+  width: min(420px, 42vw);
 }
 
 .offer-photo::before {

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import heroBurger from '../assets/photos/hero-burger.png'
+import comboCutout from '../assets/photos/combo-cutout.png'
 import { useOrder } from '../context/OrderContext'
 import PromoCodesModal from './order/PromoCodesModal'
 
@@ -19,7 +19,7 @@ export default function OpeningOffer() {
       </div>
       <div className="wrap offer-inner">
         <div className="offer-photo">
-          <img src={heroBurger} alt="House of Buns burger" loading="lazy" />
+          <img src={comboCutout} alt="House of Buns burger and fries" loading="lazy" />
         </div>
         <div className="offer-copy">
           <span className="offer-eyebrow">🎉 Now Open</span>
