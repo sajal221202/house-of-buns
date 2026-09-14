@@ -461,6 +461,28 @@
   text-align: center;
 }
 
+.order-token-mascot {
+  width: 84px;
+  height: auto;
+  margin: 0 auto 8px;
+  animation: orderMascotBounce 1.4s ease-in-out infinite;
+}
+
+@keyframes orderMascotBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .order-token-mascot {
+    animation: none;
+  }
+}
+
 .order-token-label {
   display: block;
   font-size: 12px;

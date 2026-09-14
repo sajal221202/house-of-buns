@@ -133,6 +133,20 @@
   color: var(--cream);
 }
 
+.mb-page-cover::before,
+.mb-page-back::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('../../assets/pattern-tile.jpg');
+  background-size: 220px 220px;
+  background-repeat: repeat;
+  opacity: 0.14;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: -1;
+}
+
 .mb-cover-badge {
   width: 76px;
   height: 76px;
@@ -174,8 +188,8 @@
 }
 
 .mb-back-icon {
-  width: 56px;
-  height: 56px;
+  width: 110px;
+  height: auto;
   margin-bottom: 4px;
 }
 

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { CURRENCY } from '../../data/menu'
 import { deriveStatus } from '../../context/orderStatus'
 import { waLink, orderSummaryText, RESTAURANT_WHATSAPP_NUMBER } from '../../utils/whatsapp'
+import mascotGreen from '../../assets/mascot-green.png'
 
 const STEPS = ['Order Received', 'Preparing', 'Ready for Pickup']
 
@@ -31,6 +32,7 @@ export default function TokenStep({ order, onNewOrder, onClose }) {
 
   return (
     <div className="order-step order-step-token">
+      {isReady && <img src={mascotGreen} alt="" aria-hidden="true" className="order-token-mascot" />}
       <span className="order-token-label">Your Token</span>
       <div className="order-token-number">{order.token}</div>
 

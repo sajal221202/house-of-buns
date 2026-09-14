@@ -19,6 +19,13 @@
   color: var(--near-black);
 }
 
+.logo-word-accent {
+  font-family: var(--font-accent);
+  font-weight: 400;
+  font-size: 1.2em;
+  margin: 0 1px;
+}
+
 .logo-inverted .logo-word {
   color: var(--cream);
 }
@@ -452,7 +459,18 @@
   position: relative;
   background: var(--green-darker);
   color: var(--cream);
-  padding: 80px 0 110px;
+  padding: 80px 0 60px;
+}
+
+.hype-wave {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 90px;
+  display: block;
+  pointer-events: none;
 }
 
 .seam-word {

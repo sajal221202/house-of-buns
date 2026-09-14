@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { FEATURED_BURGERS, SIDES, DRINKS, CURRENCY } from '../../data/menu'
 import { useOrder } from '../../context/OrderContext'
 import logoBadge from '../../assets/logo-badge-green.png'
-import burgerIcon from '../../assets/burger-icon.png'
+import mascotCream from '../../assets/mascot-cream.png'
 
 function chunk(list, size) {
   const out = []
@@ -43,7 +43,7 @@ function PageContent({ page, pageNumber, totalNumbered, onOrderNow }) {
   if (page.kind === 'back') {
     return (
       <div className="mb-page mb-page-back">
-        <img src={burgerIcon} alt="" className="mb-back-icon" />
+        <img src={mascotCream} alt="" className="mb-back-icon" />
         <h2 className="display mb-back-title">That's Everything!</h2>
         <p className="mb-back-copy">Dine-in only — grab a token and we'll call you when it's hot &amp; ready.</p>
         <button className="btn btn-green mb-back-cta" onClick={onOrderNow}>

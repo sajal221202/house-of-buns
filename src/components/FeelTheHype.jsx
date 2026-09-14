@@ -51,6 +51,18 @@ export default function FeelTheHype() {
           </div>
         </div>
       </div>
+
+      <svg
+        className="hype-wave"
+        viewBox="0 0 1440 120"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M0,60 C240,110 480,10 720,45 C960,80 1200,25 1440,65 L1440,120 L0,120 Z"
+          style={{ fill: 'var(--cream)' }}
+        />
+      </svg>
     </section>
   )
 }
