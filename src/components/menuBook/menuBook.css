@@ -127,24 +127,13 @@
   text-align: center;
   gap: 10px;
   padding: 32px;
-  background:
+  background-image: url('../../assets/pattern-tile.jpg'),
     radial-gradient(circle at 50% 30%, rgba(63, 138, 92, 0.4), transparent 60%),
-    var(--green-dark);
+    linear-gradient(var(--green-dark), var(--green-dark));
+  background-size: 200px 200px, cover, cover;
+  background-repeat: repeat, no-repeat, no-repeat;
+  background-blend-mode: soft-light, normal, normal;
   color: var(--cream);
-}
-
-.mb-page-cover::before,
-.mb-page-back::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url('../../assets/pattern-tile.jpg');
-  background-size: 200px 200px;
-  background-repeat: repeat;
-  opacity: 0.5;
-  mix-blend-mode: soft-light;
-  pointer-events: none;
-  z-index: -1;
 }
 
 .mb-cover-badge {
