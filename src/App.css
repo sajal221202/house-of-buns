@@ -1495,15 +1495,32 @@
 }
 
 .footer-col ul a,
-.footer-col p a {
+.footer-col p a,
+.footer-link-btn {
   color: rgba(247, 236, 217, 0.75);
   font-size: 12px;
   text-decoration: none;
 }
 
+.footer-link-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  cursor: pointer;
+}
+
 .footer-col ul a:hover,
-.footer-col p a:hover {
+.footer-col p a:hover,
+.footer-link-btn:hover {
   color: var(--cream);
+}
+
+.footer-form-error {
+  color: #f2a5a5;
+  font-size: 12px;
+  text-align: right;
+  margin: -12px 0 16px;
 }
 
 .footer-col p {

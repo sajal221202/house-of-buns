@@ -15,6 +15,7 @@ const LINKS = [
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
   const [boardOpen, setBoardOpen] = useState(false)
   const [promoOpen, setPromoOpen] = useState(false)
   const [franchiseOpen, setFranchiseOpen] = useState(false)
@@ -35,6 +36,10 @@ export default function Nav() {
     }, 1800)
     return () => clearTimeout(id)
   }, [])
+
+  function closeMobile() {
+    setMobileOpen(false)
+  }
 
   return (
     <header id="top" className={`nav ${scrolled ? 'nav-scrolled' : ''}`}>
@@ -61,12 +66,63 @@ export default function Nav() {
         <button className="btn btn-green nav-order-btn" onClick={openOrderModal}>
           Order Now
         </button>
-        <button className="nav-burger" aria-label="Menu">
+        <button
+          className={`nav-burger ${mobileOpen ? 'is-open' : ''}`}
+          aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={mobileOpen}
+          onClick={() => setMobileOpen((v) => !v)}
+        >
           <span />
           <span />
           <span />
         </button>
       </div>
+
+      {mobileOpen && (
+        <div className="nav-mobile">
+          {LINKS.map((l) => (
+            <a href={l.href} key={l.label} onClick={closeMobile}>
+              {l.label}
+            </a>
+          ))}
+          <button
+            className="nav-mobile-btn"
+            onClick={() => {
+              setPromoOpen(true)
+              closeMobile()
+            }}
+          >
+            🎁 Promo Codes
+          </button>
+          <button
+            className="nav-mobile-btn"
+            onClick={() => {
+              setBoardOpen(true)
+              closeMobile()
+            }}
+          >
+            Counter Board
+          </button>
+          <button
+            className="nav-mobile-btn"
+            onClick={() => {
+              setFranchiseOpen(true)
+              closeMobile()
+            }}
+          >
+            Franchise Enquiry
+          </button>
+          <button
+            className="btn btn-green nav-mobile-order"
+            onClick={() => {
+              openOrderModal()
+              closeMobile()
+            }}
+          >
+            Order Now
+          </button>
+        </div>
+      )}
 
       {orderModalOpen && <OrderModal onClose={closeOrderModal} />}
       {boardOpen && <CounterBoard onClose={() => setBoardOpen(false)} />}
