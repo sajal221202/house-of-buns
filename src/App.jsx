@@ -26,7 +26,6 @@ function App() {
       <TopBar />
       <Nav />
       <Hero />
-      <OpeningOffer />
       <FeelTheHype />
       <ArtisanalStack />
       <FeaturedBurgers />
