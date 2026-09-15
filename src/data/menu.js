@@ -14,8 +14,8 @@ import bevFantaGlass from '../assets/photos/beverages/bev-fanta-glass.png'
 import bevSpriteCan from '../assets/photos/beverages/bev-sprite-can.png'
 import bevCokeCan from '../assets/photos/beverages/bev-coke-can.png'
 import bevDietCokeCan from '../assets/photos/beverages/bev-diet-coke-can.png'
-import bevColdCoffee from '../assets/photos/beverages/bev-cold-coffee.png'
-import bevIcedTea from '../assets/photos/beverages/bev-iced-tea.png'
+import bevColdCoffeePhoto from '../assets/photos/beverages/bev-cold-coffee-photo.jpg'
+import bevIcedTeaPhoto from '../assets/photos/beverages/bev-iced-tea-photo.jpg'
 import heroBurger from '../assets/photos/hero-burger.png'
 import outletCounter from '../assets/photos/outlet-counter.jpg'
 import outletWall from '../assets/photos/outlet-wall.jpg'
@@ -48,8 +48,8 @@ export const SIDES = [
 ]
 
 export const DRINKS = [
-  { name: 'Cold Coffee', price: 129, mrp: 149, prepTime: '4-5 mins', photo: bevColdCoffee, tint: 'brown' },
-  { name: 'Iced Tea', price: 99, mrp: 119, prepTime: '3-4 mins', photo: bevIcedTea, tint: 'amber' },
+  { name: 'Cold Coffee', price: 129, mrp: 149, prepTime: '4-5 mins', photo: bevColdCoffeePhoto },
+  { name: 'Iced Tea', price: 99, mrp: 119, prepTime: '3-4 mins', photo: bevIcedTeaPhoto },
 ]
 
 export const GLASS_BOTTLE_DRINKS = [
