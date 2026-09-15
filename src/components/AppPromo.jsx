@@ -1,37 +1,12 @@
-import { APP_PHOTO, FEATURED_BURGERS, CURRENCY } from '../data/menu'
+import { CURRENCY } from '../data/menu'
 import { useOrder } from '../context/OrderContext'
 
-const featured = FEATURED_BURGERS[3]
-
 export default function AppPromo() {
-  const { addToCart, openOrderModal } = useOrder()
-
-  function handleAdd() {
-    addToCart(featured)
-    openOrderModal()
-  }
+  const { openOrderModal } = useOrder()
 
   return (
     <section className="app">
-      <div className="wrap app-inner">
-        <div className="app-phone" data-reveal>
-          <div className="app-phone-screen">
-            <div className="app-phone-photo">
-              <img src={APP_PHOTO} alt={featured.name} loading="lazy" />
-            </div>
-            <div className="app-phone-line">
-              <span>{featured.name}</span>
-              <span>
-                {CURRENCY}
-                {featured.price}
-              </span>
-            </div>
-            <button className="app-phone-btn" onClick={handleAdd}>
-              Add {CURRENCY}
-              {featured.price}
-            </button>
-          </div>
-        </div>
+      <div className="wrap app-inner app-inner-centered">
         <div className="app-copy" data-reveal>
           <h2 className="display">
             Order Ahead

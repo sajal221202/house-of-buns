@@ -826,26 +826,14 @@
 }
 
 .featured-item h3 {
-  font-size: 15px;
+  font-size: 13.5px;
   font-weight: 700;
-  margin: 0;
+  margin: 0 0 4px;
 }
 
 @media (max-width: 760px) {
   .featured-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-  .featured-item:nth-child(3n) {
-    border-right: 2px dashed rgba(20, 32, 26, 0.15);
-  }
-  .featured-item:nth-child(2n) {
-    border-right: none;
-  }
-  .featured-item:nth-last-child(-n + 3) {
-    border-bottom: 2px dashed rgba(20, 32, 26, 0.15);
-  }
-  .featured-item:nth-last-child(-n + 2) {
-    border-bottom: none;
   }
 }
 
