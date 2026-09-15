@@ -1,4 +1,3 @@
-import { CURRENCY } from '../data/menu'
 import { useOrder } from '../context/OrderContext'
 
 export default function AppPromo() {

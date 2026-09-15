@@ -83,8 +83,6 @@ export const HYPE_PHOTOS = {
   flavours: burgerPatty,
 }
 
-export const APP_PHOTO = burgerVeg2
-
 export const STACK_STEPS = [
   {
     key: 'bun',
