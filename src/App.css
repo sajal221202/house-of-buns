@@ -2232,20 +2232,15 @@
 
 /* Card carousel (Featured Buns / On The Side / Drinks) */
 .carousel-label {
-  text-align: center;
   font-size: 12px;
   font-weight: 700;
   color: var(--green-dark);
   background: var(--green-tint);
-  display: inline-block;
+  display: table;
   padding: 6px 16px;
   border-radius: 999px;
   margin: 0 auto 18px;
   animation: carouselLabelIn 0.35s ease;
-}
-
-.carousel-label-wrap {
-  text-align: center;
 }
 
 @keyframes carouselLabelIn {
