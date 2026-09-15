@@ -27,18 +27,20 @@ export default function CardCarousel({
   const total = pages.length
 
   const [page, setPage] = useState(0)
-  const [paused, setPaused] = useState(false)
 
+  // Auto-advances continuously, unaffected by hover. Manual dot clicks just
+  // jump the page — the interval keeps ticking on its own schedule, so
+  // auto-scroll naturally resumes from wherever the user leaves it.
   useEffect(() => {
-    if (total <= 1 || paused) return undefined
+    if (total <= 1) return undefined
     const id = setInterval(() => setPage((p) => (p + 1) % total), autoPlayMs)
     return () => clearInterval(id)
-  }, [total, paused, autoPlayMs])
+  }, [total, autoPlayMs])
 
   const currentLabel = pages[page]?.label
 
   return (
-    <div className="carousel" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
+    <div className="carousel">
       {currentLabel && (
         <div className="carousel-label" key={currentLabel}>
           {currentLabel}

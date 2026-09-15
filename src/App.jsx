@@ -27,11 +27,11 @@ function App() {
       <Nav />
       <Hero />
       <FeelTheHype />
-      <ArtisanalStack />
       <FeaturedBurgers />
       <Sides />
-      <Checkerboard />
       <Drinks />
+      <Checkerboard />
+      <ArtisanalStack />
       <Testimonials />
       <AppPromo />
       <Locations />
