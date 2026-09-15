@@ -48,12 +48,51 @@ export const DRINKS = [
   { name: 'Colddrinks', price: 69, mrp: 79, prepTime: '2 mins', photo: drinkCola },
 ]
 
+// Real customer reviews from our Google Business listing (lightly proofread for spelling/grammar only — no claims added or changed).
 export const TESTIMONIALS = [
-  { name: 'Darrell Steward', location: 'Downtown', title: 'Very Good!', quote: 'House of Buns is real, their fillings, hours in line, delicious.', rating: 4, avatar: '👩‍🦰' },
-  { name: 'Jason Turner', location: 'Uptown', title: 'Worth The Wait', quote: 'The hype is real! It was worth the line, and totally worth it!', rating: 5, avatar: '👨' },
-  { name: 'Michael Yonke', location: 'Downtown', title: 'Amazing', quote: 'That Tex Mex tikki almost gave me a triple bypass... it was so yummy, totally worth it!', rating: 5, avatar: '🧔', featured: true },
-  { name: 'Adam Mura', location: 'Uptown', title: 'Turning Point', quote: 'This place is my inspiration for menu designs.', rating: 4, avatar: '👨‍🦱' },
-  { name: 'Christy Nae', location: 'Downtown', title: 'Great Service', quote: 'Customer service is very experienced and satisfactory.', rating: 4, avatar: '👩' },
+  {
+    name: 'Birju',
+    location: 'Indore',
+    title: 'Amazing Flavour',
+    quote:
+      "Amazing flavour — very unique taste, and the burger patty is juicy inside. I'd also recommend the cold coffee, very strong with a smooth taste.",
+    rating: 5,
+    avatar: '🧑‍🦱',
+  },
+  {
+    name: 'Gauri Mantri',
+    location: 'Indore',
+    title: 'Worth A Visit',
+    quote: 'Great food, cozy ambience, and lovely service. Definitely worth a visit.',
+    rating: 5,
+    avatar: '🙂',
+  },
+  {
+    name: 'Sumit Bais',
+    location: 'Indore',
+    title: 'Best In Town',
+    quote:
+      "Hands down one of the best cafe spots in town! The burgers here are super fresh, juicy, and the buns are incredibly soft. Amazing vibe, fast service, and worth every rupee.",
+    rating: 5,
+    avatar: '🧑',
+    featured: true,
+  },
+  {
+    name: 'Moksha Nayak',
+    location: 'Indore',
+    title: 'Must Try!',
+    quote: "Excellent food, and you must try the cold coffee — it's amazing.",
+    rating: 5,
+    avatar: '🧑‍🦳',
+  },
+  {
+    name: 'Preet Nagar',
+    location: 'Indore',
+    title: 'Best Burgers In Indore',
+    quote: 'Best burgers in Indore — fast service and good quality buns.',
+    rating: 5,
+    avatar: '😊',
+  },
 ]
 
 export const OUTLET_PHOTOS = [
