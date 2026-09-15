@@ -1022,9 +1022,9 @@
 .bev-tiles {
   display: flex;
   justify-content: center;
-  align-items: flex-end;
-  gap: 40px;
-  padding: 30px 10px 10px;
+  align-items: flex-start;
+  gap: 44px;
+  padding: 8px 10px 10px;
 }
 
 .bev-tile {
@@ -1032,7 +1032,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 168px;
+  width: 200px;
   text-align: center;
 }
 
@@ -1040,8 +1040,8 @@
   position: absolute;
   top: 10px;
   left: 50%;
-  width: 128px;
-  height: 128px;
+  width: 176px;
+  height: 176px;
   border-radius: 50%;
   transform: translateX(-50%);
   filter: blur(2px);
@@ -1052,7 +1052,7 @@
 .bev-tile-photo {
   position: relative;
   z-index: 1;
-  height: 170px;
+  height: 230px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -1112,7 +1112,8 @@
   .bev-tiles {
     gap: 16px;
   }
-  .bev-tile {
+  .bev-tile,
+  .bev-photo-tile {
     width: 110px;
   }
   .bev-tile-photo {
