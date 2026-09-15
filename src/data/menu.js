@@ -48,9 +48,20 @@ export const SIDES = [
 ]
 
 export const DRINKS = [
-  { name: 'Cold Coffee', price: 129, mrp: 149, prepTime: '4-5 mins', photo: drinkCoffee },
-  { name: 'Iced Tea', price: 99, mrp: 119, prepTime: '3-4 mins', photo: drinkMint },
-  { name: 'Colddrinks', price: 69, mrp: 79, prepTime: '2 mins', photo: drinkCola },
+  { name: 'Cold Coffee', price: 129, mrp: 149, prepTime: '4-5 mins', photo: bevColdCoffee, tint: 'brown' },
+  { name: 'Iced Tea', price: 99, mrp: 119, prepTime: '3-4 mins', photo: bevIcedTea, tint: 'amber' },
+]
+
+export const GLASS_BOTTLE_DRINKS = [
+  { name: 'Coca-Cola (Glass Bottle)', price: 49, mrp: 60, photo: bevColaBottle, tint: 'red' },
+  { name: 'Fanta (Glass Bottle)', price: 49, mrp: 60, photo: bevFantaGlass, tint: 'orange' },
+  { name: 'Sprite (Glass Bottle)', price: 49, mrp: 60, photo: bevSpriteBottle, tint: 'green' },
+]
+
+export const CAN_DRINKS = [
+  { name: 'Sprite Can', price: 45, mrp: 55, photo: bevSpriteCan, tint: 'green' },
+  { name: 'Coca-Cola Can', price: 45, mrp: 55, photo: bevCokeCan, tint: 'red' },
+  { name: 'Diet Coke Can', price: 45, mrp: 55, photo: bevDietCokeCan, tint: 'silver' },
 ]
 
 // Real customer reviews from our Google Business listing (lightly proofread for spelling/grammar only — no claims added or changed).
