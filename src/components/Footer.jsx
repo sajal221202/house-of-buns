@@ -90,7 +90,7 @@ export default function Footer() {
         <div className="footer-col">
           <h4>Contact &amp; Connect</h4>
           <p>
-            <a href="mailto:hello@houseofbuns.co.in">hello@houseofbuns.co.in</a>
+            <a href="mailto:connect@houseofbuns.co.in">connect@houseofbuns.co.in</a>
           </p>
           {CALL_HREF && (
             <p>
