@@ -3,7 +3,7 @@ import { CURRENCY } from '../data/menu'
 // Fill this in with the restaurant's real WhatsApp number (country code + number,
 // digits only, e.g. '91XXXXXXXXXX') to target the counter's WhatsApp directly.
 // Left blank, the "notify counter" link just opens WhatsApp's contact picker instead.
-export const RESTAURANT_WHATSAPP_NUMBER = '919039035052'
+export const RESTAURANT_WHATSAPP_NUMBER = '918827346174'
 
 export function waLink(phone, text) {
   const digits = (phone || '').replace(/\D/g, '')
