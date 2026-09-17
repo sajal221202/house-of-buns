@@ -30,48 +30,6 @@
   color: var(--cream);
 }
 
-/* Top bar */
-.topbar {
-  background: var(--green-darker);
-  color: var(--cream);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 8px 24px;
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.topbar-loc {
-  opacity: 0.85;
-}
-
-.topbar-contact {
-  color: var(--cream);
-  text-decoration: none;
-  opacity: 0.9;
-}
-
-.topbar-contact strong {
-  color: var(--green-light);
-}
-
-.topbar-contact:hover {
-  opacity: 1;
-}
-
-@media (max-width: 560px) {
-  .topbar {
-    justify-content: center;
-    text-align: center;
-    padding: 8px 14px;
-  }
-  .topbar-loc {
-    display: none;
-  }
-}
-
 /* Nav */
 .nav {
   background: var(--cream);

@@ -21,7 +21,6 @@ function App() {
 
   return (
     <OrderProvider>
-      <TopBar />
       <Nav />
       <Hero />
       <FeelTheHype />
