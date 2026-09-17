@@ -16,7 +16,7 @@ const [mainPhoto, ...thumbPhotos] = OUTLET_PHOTOS
 
 export default function Locations() {
   return (
-    <section className="locations">
+    <section className="locations" id="location">
       <div className="wrap">
         <div className="flagship-card" data-reveal>
           <div className="flagship-left">
