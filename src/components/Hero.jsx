@@ -57,7 +57,7 @@ export default function Hero() {
             Bites
           </h1>
           <div className="hero-cta-row">
-            <a href="#menu" className="btn btn-green hero-cta">
+            <a href="#location" className="btn btn-green hero-cta">
               Find Location
             </a>
             <div className="hero-pick">

@@ -462,9 +462,9 @@
 }
 
 .order-token-mascot {
-  width: 84px;
+  width: 52px;
   height: auto;
-  margin: 0 auto 8px;
+  margin: 0 auto 4px;
   animation: orderMascotBounce 1.4s ease-in-out infinite;
 }
 
