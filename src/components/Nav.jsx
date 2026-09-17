@@ -15,7 +15,6 @@ const LINKS = [
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
-  const [boardOpen, setBoardOpen] = useState(false)
   const [promoOpen, setPromoOpen] = useState(false)
   const [franchiseOpen, setFranchiseOpen] = useState(false)
   const { orderModalOpen, openOrderModal, closeOrderModal } = useOrder()
@@ -55,9 +54,6 @@ export default function Nav() {
             Promo Codes
             <span className="nav-promo-dot" aria-hidden="true" />
           </button>
-          <button className="nav-link-plain" onClick={() => setBoardOpen(true)}>
-            Counter Board
-          </button>
           <button className="nav-link-plain" onClick={() => setFranchiseOpen(true)}>
             Franchise Enquiry
           </button>
@@ -92,15 +88,6 @@ export default function Nav() {
             }}
           >
             🎁 Promo Codes
-          </button>
-          <button
-            className="nav-mobile-btn"
-            onClick={() => {
-              setBoardOpen(true)
-              closeMobile()
-            }}
-          >
-            Counter Board
           </button>
           <button
             className="nav-mobile-btn"
