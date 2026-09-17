@@ -111,7 +111,6 @@ export default function Nav() {
       )}
 
       {orderModalOpen && <OrderModal onClose={closeOrderModal} />}
-      {boardOpen && <CounterBoard onClose={() => setBoardOpen(false)} />}
       {promoOpen && <PromoCodesModal onClose={() => setPromoOpen(false)} />}
       {franchiseOpen && <FranchiseModal onClose={() => setFranchiseOpen(false)} />}
     </header>
