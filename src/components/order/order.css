@@ -485,26 +485,26 @@
 
 .order-token-label {
   display: block;
-  font-size: 12px;
+  font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--text-muted);
-  margin-bottom: 6px;
+  margin-bottom: 2px;
 }
 
 .order-token-number {
   font-family: var(--font-display);
-  font-size: clamp(40px, 8vw, 56px);
+  font-size: clamp(30px, 6vw, 42px);
   color: var(--green);
   letter-spacing: 0.04em;
-  margin-bottom: 24px;
+  margin-bottom: 14px;
 }
 
 .order-progress-track {
   position: relative;
   display: flex;
   justify-content: space-between;
-  margin: 0 auto 24px;
+  margin: 0 auto 16px;
   max-width: 380px;
 }
 
@@ -562,8 +562,8 @@
 .order-token-status {
   font-size: 14px;
   color: var(--near-black);
-  margin-bottom: 24px;
-  line-height: 1.6;
+  margin-bottom: 14px;
+  line-height: 1.5;
 }
 
 .order-token-status-ready {
@@ -578,8 +578,8 @@
 .order-whatsapp-row {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  margin: 18px 0;
+  gap: 6px;
+  margin: 12px 0;
 }
 
 .order-whatsapp-btn {
