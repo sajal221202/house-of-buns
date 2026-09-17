@@ -1,11 +1,13 @@
 import { useState } from 'react'
-import { FEATURED_BURGERS, SIDES, DRINKS, CURRENCY } from '../../data/menu'
+import { FEATURED_BURGERS, SIDES, DRINKS, GLASS_BOTTLE_DRINKS, CAN_DRINKS, CURRENCY } from '../../data/menu'
 import { useOrder } from '../../context/OrderContext'
 
 const SECTIONS = [
   { key: 'burgers', label: 'Featured Buns', icon: '🍔', items: FEATURED_BURGERS },
   { key: 'sides', label: 'On The Side', icon: '🍟', items: SIDES },
-  { key: 'drinks', label: 'Chug It Down', icon: '🥤', items: DRINKS },
+  { key: 'drinks', label: 'House Specials', icon: '☕', items: DRINKS },
+  { key: 'glass-bottles', label: 'Glass Bottles', icon: '🍾', items: GLASS_BOTTLE_DRINKS },
+  { key: 'cans', label: 'Chilled Cans', icon: '🥤', items: CAN_DRINKS },
 ]
 
 export default function MenuStep({ onCheckout }) {
