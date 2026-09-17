@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { FEATURED_BURGERS, SIDES, DRINKS, CURRENCY } from '../../data/menu'
+import { FEATURED_BURGERS, SIDES, DRINKS, GLASS_BOTTLE_DRINKS, CAN_DRINKS, CURRENCY } from '../../data/menu'
 import { useOrder } from '../../context/OrderContext'
 import logoBadge from '../../assets/logo-badge-green.png'
 import mascotCream from '../../assets/mascot-cream.png'
@@ -20,7 +20,13 @@ function buildPages() {
     pages.push({ kind: 'items', label: 'On The Side', icon: '🍟', items: group })
   })
   chunk(DRINKS, 3).forEach((group) => {
-    pages.push({ kind: 'items', label: 'Chug It Down', icon: '🥤', items: group })
+    pages.push({ kind: 'items', label: 'House Specials', icon: '☕', items: group })
+  })
+  chunk(GLASS_BOTTLE_DRINKS, 3).forEach((group) => {
+    pages.push({ kind: 'items', label: 'Glass Bottles', icon: '🍾', items: group })
+  })
+  chunk(CAN_DRINKS, 3).forEach((group) => {
+    pages.push({ kind: 'items', label: 'Chilled Cans', icon: '🥤', items: group })
   })
 
   pages.push({ kind: 'back' })
