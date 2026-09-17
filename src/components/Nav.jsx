@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import Logo from './Logo'
 import OrderModal from './order/OrderModal'
-import CounterBoard from './order/CounterBoard'
 import PromoCodesModal from './order/PromoCodesModal'
 import FranchiseModal from './order/FranchiseModal'
 import { useOrder } from '../context/OrderContext'

@@ -11,17 +11,21 @@ import QualityAssured from './components/QualityAssured'
 import Locations from './components/Locations'
 import Footer from './components/Footer'
 import ScrollBurgerProgress from './components/ScrollBurgerProgress'
+import CounterBoardPage from './components/counter/CounterBoardPage'
 import useScrollReveal from './hooks/useScrollReveal'
 import { OrderProvider } from './context/OrderContext'
 import './App.css'
 import './components/order/order.css'
 import './components/menuBook/menuBook.css'
+import './components/counter/counter.css'
 
-function App() {
+const isCounterPage = typeof window !== 'undefined' && window.location.pathname.replace(/\/+$/, '') === '/counter'
+
+function MainSite() {
   useScrollReveal()
 
   return (
-    <OrderProvider>
+    <>
       <Nav />
       <Hero />
       <FeelTheHype />
@@ -35,8 +39,12 @@ function App() {
       <Locations />
       <Footer />
       <ScrollBurgerProgress />
-    </OrderProvider>
+    </>
   )
+}
+
+function App() {
+  return <OrderProvider>{isCounterPage ? <CounterBoardPage /> : <MainSite />}</OrderProvider>
 }
 
 export default App
