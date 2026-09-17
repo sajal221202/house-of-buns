@@ -7,6 +7,7 @@ import Sides from './components/Sides'
 import Checkerboard from './components/Checkerboard'
 import Drinks from './components/Drinks'
 import Testimonials from './components/Testimonials'
+import QualityAssured from './components/QualityAssured'
 import Locations from './components/Locations'
 import Footer from './components/Footer'
 import ScrollBurgerProgress from './components/ScrollBurgerProgress'
@@ -30,6 +31,7 @@ function App() {
       <Checkerboard />
       <ArtisanalStack />
       <Testimonials />
+      <QualityAssured />
       <Locations />
       <Footer />
       <ScrollBurgerProgress />
