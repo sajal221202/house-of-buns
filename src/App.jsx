@@ -1,4 +1,3 @@
-import TopBar from './components/TopBar'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
 import FeelTheHype from './components/FeelTheHype'
