@@ -188,6 +188,7 @@ export function OrderProvider({ children }) {
 
     setOrders((prev) => [...prev, order])
     clearCart()
+    syncOrderToSheet(order)
     return order
   }
 
