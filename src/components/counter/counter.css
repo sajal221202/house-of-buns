@@ -99,7 +99,24 @@
   font-weight: 700;
   padding: 16px 20px;
   border-radius: 14px;
-  animation: counterBannerIn 0.3s ease, counterBannerPulse 1.2s ease-in-out 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  animation: counterBannerIn 0.3s ease, counterBannerPulse 1.2s ease-in-out 4;
+}
+
+.counter-banner-dismiss {
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
 }
 
 @keyframes counterBannerIn {

@@ -250,8 +250,19 @@ function Board() {
 
       {newOrderBanner && (
         <div className="counter-banner">
-          🔔 New order <strong>{newOrderBanner.token}</strong> from {newOrderBanner.name} —{' '}
-          {newOrderBanner.items.reduce((s, i) => s + i.qty, 0)} item(s)
+          <span>
+            🔔 New order <strong>{newOrderBanner.token}</strong> from {newOrderBanner.name} —{' '}
+            {newOrderBanner.items.reduce((s, i) => s + i.qty, 0)} item(s)
+          </span>
+          <button
+            className="counter-banner-dismiss"
+            onClick={() => {
+              setNewOrderBanner(null)
+              setHasNewOrder(false)
+            }}
+          >
+            Got it ✕
+          </button>
         </div>
       )}
 
