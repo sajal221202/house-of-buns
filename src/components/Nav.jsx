@@ -26,15 +26,6 @@ export default function Nav() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  useEffect(() => {
-    if (sessionStorage.getItem('hob_promo_seen')) return
-    const id = setTimeout(() => {
-      setPromoOpen(true)
-      sessionStorage.setItem('hob_promo_seen', '1')
-    }, 1800)
-    return () => clearTimeout(id)
-  }, [])
-
   function closeMobile() {
     setMobileOpen(false)
   }
