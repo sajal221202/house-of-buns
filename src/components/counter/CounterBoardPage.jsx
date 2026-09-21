@@ -14,29 +14,78 @@ function formatClock(ms) {
   return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`
 }
 
-function playChime() {
+// Browsers block audio from a freshly-created AudioContext until it's been
+// resumed inside a real user gesture (a click/tap). We create ONE shared
+// context and unlock it the moment staff submits the PIN — after that,
+// reusing this same context lets the chime actually play unattended later.
+let sharedAudioCtx = null
+
+function unlockAudio() {
   try {
     const Ctx = window.AudioContext || window.webkitAudioContext
-    const ctx = new Ctx()
-    const tones = [880, 1180]
-    tones.forEach((freq, i) => {
-      const start = ctx.currentTime + i * 0.18
-      const osc = ctx.createOscillator()
-      const gain = ctx.createGain()
-      osc.type = 'sine'
-      osc.frequency.value = freq
-      gain.gain.setValueAtTime(0.0001, start)
-      gain.gain.exponentialRampToValueAtTime(0.3, start + 0.02)
-      gain.gain.exponentialRampToValueAtTime(0.0001, start + 0.35)
-      osc.connect(gain)
-      gain.connect(ctx.destination)
-      osc.start(start)
-      osc.stop(start + 0.4)
-    })
-    setTimeout(() => ctx.close(), 900)
+    if (!sharedAudioCtx) sharedAudioCtx = new Ctx()
+    if (sharedAudioCtx.state === 'suspended') sharedAudioCtx.resume()
   } catch {
-    // Web Audio unavailable — fail silently, the on-screen banner still shows.
+    // Web Audio unavailable — chime just won't play, banner/vibration still work.
   }
+}
+
+function playTone(ctx, freq, start, duration, volume) {
+  const osc = ctx.createOscillator()
+  const gain = ctx.createGain()
+  osc.type = 'sine'
+  osc.frequency.value = freq
+  gain.gain.setValueAtTime(0.0001, start)
+  gain.gain.exponentialRampToValueAtTime(volume, start + 0.02)
+  gain.gain.exponentialRampToValueAtTime(0.0001, start + duration)
+  osc.connect(gain)
+  gain.connect(ctx.destination)
+  osc.start(start)
+  osc.stop(start + duration + 0.05)
+}
+
+// A louder, more urgent 3-burst chime (not just one quick two-note blip) so
+// it's hard to miss even if the counter is a bit noisy.
+function playChime() {
+  try {
+    if (!sharedAudioCtx) unlockAudio()
+    const ctx = sharedAudioCtx
+    if (!ctx) return
+    if (ctx.state === 'suspended') ctx.resume()
+
+    const burstGap = 0.55
+    for (let burst = 0; burst < 3; burst++) {
+      const base = ctx.currentTime + burst * burstGap
+      playTone(ctx, 880, base, 0.35, 0.5)
+      playTone(ctx, 1180, base + 0.16, 0.35, 0.5)
+    }
+  } catch {
+    // Fail silently — the on-screen banner and vibration still alert staff.
+  }
+}
+
+function vibrate() {
+  try {
+    navigator.vibrate?.([250, 120, 250, 120, 250])
+  } catch {
+    // Vibration unsupported (e.g. iOS Safari) — ignore.
+  }
+}
+
+function useTitleFlash(active, message) {
+  useEffect(() => {
+    if (!active) return undefined
+    const original = document.title
+    let showAlert = true
+    const id = setInterval(() => {
+      document.title = showAlert ? message : original
+      showAlert = !showAlert
+    }, 1000)
+    return () => {
+      clearInterval(id)
+      document.title = original
+    }
+  }, [active, message])
 }
 
 function useWakeLock(active) {
