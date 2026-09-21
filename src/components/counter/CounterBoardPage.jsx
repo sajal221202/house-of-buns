@@ -115,6 +115,7 @@ function PinGate({ onUnlock }) {
     e.preventDefault()
     if (value === PIN) {
       localStorage.setItem(PIN_KEY, '1')
+      unlockAudio()
       onUnlock()
     } else {
       setError('Incorrect PIN.')
@@ -181,6 +182,9 @@ function Board() {
   const [newOrderBanner, setNewOrderBanner] = useState(null)
   const seenTokens = useRef(null)
 
+  const [hasNewOrder, setHasNewOrder] = useState(false)
+  useTitleFlash(hasNewOrder, '🔔 New Order!')
+
   useWakeLock(true)
 
   useEffect(() => {
@@ -191,6 +195,18 @@ function Board() {
   useEffect(() => {
     if (typeof Notification !== 'undefined' && Notification.permission === 'default') {
       Notification.requestPermission()
+    }
+  }, [])
+
+  // Covers the "PIN already remembered from a previous visit" case, where
+  // PinGate's submit (and its audio unlock) never runs this session.
+  useEffect(() => {
+    const unlock = () => unlockAudio()
+    window.addEventListener('pointerdown', unlock, { once: true })
+    window.addEventListener('keydown', unlock, { once: true })
+    return () => {
+      window.removeEventListener('pointerdown', unlock)
+      window.removeEventListener('keydown', unlock)
     }
   }, [])
 
@@ -205,9 +221,11 @@ function Board() {
     if (fresh.length === 0) return
 
     playChime()
+    vibrate()
+    setHasNewOrder(true)
     const latest = fresh[fresh.length - 1]
     setNewOrderBanner(latest)
-    const timeout = setTimeout(() => setNewOrderBanner(null), 6000)
+    const timeout = setTimeout(() => setNewOrderBanner(null), 15000)
 
     if (typeof Notification !== 'undefined' && Notification.permission === 'granted' && document.hidden) {
       const itemCount = latest.items.reduce((s, i) => s + i.qty, 0)
