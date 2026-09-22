@@ -31,7 +31,7 @@ const HYPE_ITEMS = [
 
 function StackCard({ item }) {
   return (
-    <div className="hype-card hype-stack-card" data-reveal>
+    <div className="hype-card hype-card-tall hype-stack-card" data-reveal>
       <span className="hype-card-num">{item.num}</span>
       <div className="hype-photo">
         <img src={item.photo} alt={item.alt} loading="lazy" />
