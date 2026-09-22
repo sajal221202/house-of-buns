@@ -681,6 +681,45 @@
   }
 }
 
+/* Stack carousel — used on mobile for Feel the Hype and Hear the Hype (reviews),
+   one card at a time, auto-advancing, with a couple of card-back edges peeking
+   out behind to read as a stack rather than a single flat card. */
+.stack-carousel {
+  position: relative;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.stack-carousel::before,
+.stack-carousel::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--cream);
+  border: 2px solid var(--green);
+  border-radius: 20px;
+  z-index: -1;
+}
+
+.stack-carousel::before {
+  transform: translate(10px, 10px) rotate(3deg);
+  opacity: 0.55;
+}
+
+.stack-carousel::after {
+  transform: translate(-10px, 12px) rotate(-3deg);
+  opacity: 0.3;
+}
+
+.stack-carousel-slide {
+  display: flex;
+  justify-content: center;
+}
+
+.hype-stack-card {
+  width: 100%;
+}
+
 /* Featured buns */
 .featured {
   position: relative;
@@ -791,7 +830,7 @@
 
 @media (max-width: 760px) {
   .featured-grid {
-    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
 }
 
