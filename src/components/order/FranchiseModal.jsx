@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { waLink, RESTAURANT_WHATSAPP_NUMBER } from '../../utils/whatsapp'
+import { syncFranchiseToSheet } from '../../utils/sheetSync'
 
 export default function FranchiseModal({ onClose }) {
   const [form, setForm] = useState({ name: '', phone: '', city: '', budget: '' })
@@ -17,6 +18,12 @@ export default function FranchiseModal({ onClose }) {
       `City: ${form.city}`,
       `Investment Budget: ${form.budget || 'Not specified'}`,
     ].join('\n')
+    syncFranchiseToSheet({
+      name: form.name,
+      phone: form.phone,
+      city: form.city,
+      budget: form.budget || 'Not specified',
+    })
     window.open(waLink(RESTAURANT_WHATSAPP_NUMBER, text), '_blank', 'noopener,noreferrer')
     onClose()
   }
