@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { FEATURED_BURGERS, CURRENCY } from '../data/menu'
+import { FEATURED_BURGERS } from '../data/menu'
 import MenuBook from './menuBook/MenuBook'
 import { WishlistButton, PrepAndPrice } from './shared/ProductCardBits'
 import CardCarousel from './shared/CardCarousel'
