@@ -27,10 +27,6 @@ export default function FeaturedBurgers() {
               <div className="featured-photo">
                 <img src={item.photo} alt={item.name} loading="lazy" />
                 <WishlistButton item={item} />
-                <span className="featured-badge">
-                  {CURRENCY}
-                  {item.price}
-                </span>
               </div>
               <h3>{item.name}</h3>
               <PrepAndPrice item={item} />
