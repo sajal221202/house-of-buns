@@ -29,39 +29,39 @@ export function discountPercent(item) {
 }
 
 export const FEATURED_BURGERS = [
-  { name: 'Aloo Tikki', price: 99, mrp: 119, prepTime: '8-10 mins', photo: burgerPatty },
+  { name: 'Aloo Tikki', price: 49, mrp: 119, prepTime: '8-10 mins', photo: burgerPatty },
   { name: 'Cheese Chilli Aloo Tikki', price: 119, mrp: 139, prepTime: '10-12 mins', photo: burgerVeg2 },
-  { name: 'Cheese N Veggies', price: 119, mrp: 139, prepTime: '10-12 mins', photo: burgersTable },
-  { name: 'Chipotle Aloo Tikki', price: 109, mrp: 129, prepTime: '10-12 mins', photo: burgerVeg2 },
-  { name: 'Tandoori Aloo Tikki', price: 109, mrp: 129, prepTime: '10-12 mins', photo: burgersTable },
-  { name: 'Tex Mex', price: 129, mrp: 149, prepTime: '12-14 mins', photo: burgerPatty },
+  { name: 'Cheese N Veggies', price: 129, mrp: 139, prepTime: '10-12 mins', photo: burgersTable },
+  { name: 'Chipotle Aloo Tikki', price: 79, mrp: 129, prepTime: '10-12 mins', photo: burgerVeg2 },
+  { name: 'Tandoori Aloo Tikki', price: 69, mrp: 129, prepTime: '10-12 mins', photo: burgersTable },
+  { name: 'Tex Mex', price: 219, mrp: 249, prepTime: '12-14 mins', photo: burgerPatty },
 ]
 
 export const SIDES = [
   { name: 'Cheese Coins', price: 129, mrp: 155, prepTime: '8-10 mins', photo: sideCheeseCoins },
   { name: 'Herb Sticks', price: 129, mrp: 155, prepTime: '8-10 mins', photo: sideHerbSticks },
-  { name: 'Loaded Nachos', price: 149, mrp: 179, prepTime: '10-12 mins', photo: sideNachos },
+  { name: 'Loaded Nachos', price: 129, mrp: 179, prepTime: '10-12 mins', photo: sideNachos },
   { name: 'Garlic Bread Toasties', price: 129, mrp: 155, prepTime: '8-10 mins', photo: sideGarlicBread },
-  { name: 'Salted Fries', price: 99, mrp: 119, prepTime: '6-8 mins', photo: sideSaltedFries },
-  { name: 'Peri Peri Fries', price: 109, mrp: 129, prepTime: '6-8 mins', photo: sidePeriFries },
+  { name: 'Salted Fries', price: 59, mrp: 119, prepTime: '6-8 mins', photo: sideSaltedFries },
+  { name: 'Peri Peri Fries', price: 79, mrp: 129, prepTime: '6-8 mins', photo: sidePeriFries },
   { name: 'Cheesy Fries', price: 129, mrp: 149, prepTime: '8-10 mins', photo: sideCheesyFries },
 ]
 
 export const DRINKS = [
-  { name: 'Cold Coffee', price: 129, mrp: 149, prepTime: '4-5 mins', photo: bevColdCoffeePhoto },
-  { name: 'Iced Tea', price: 99, mrp: 119, prepTime: '3-4 mins', photo: bevIcedTeaPhoto },
+  { name: 'Cold Coffee', price: 69, mrp: 149, prepTime: '4-5 mins', photo: bevColdCoffeePhoto },
+  { name: 'Iced Tea', price: 69, mrp: 119, prepTime: '3-4 mins', photo: bevIcedTeaPhoto },
 ]
 
 export const GLASS_BOTTLE_DRINKS = [
-  { name: 'Coca-Cola (Glass Bottle)', price: 49, mrp: 60, photo: bevColaBottle, tint: 'red' },
-  { name: 'Fanta (Glass Bottle)', price: 49, mrp: 60, photo: bevFantaGlass, tint: 'orange' },
-  { name: 'Sprite (Glass Bottle)', price: 49, mrp: 60, photo: bevSpriteBottle, tint: 'green' },
+  { name: 'Coca-Cola (Glass Bottle)', price: 20, mrp: 60, photo: bevColaBottle, tint: 'red' },
+  { name: 'Fanta (Glass Bottle)', price: 20, mrp: 60, photo: bevFantaGlass, tint: 'orange' },
+  { name: 'Sprite (Glass Bottle)', price: 20, mrp: 60, photo: bevSpriteBottle, tint: 'green' },
 ]
 
 export const CAN_DRINKS = [
-  { name: 'Sprite Can', price: 45, mrp: 55, photo: bevSpriteCan, tint: 'green' },
-  { name: 'Coca-Cola Can', price: 45, mrp: 55, photo: bevCokeCan, tint: 'red' },
-  { name: 'Diet Coke Can', price: 45, mrp: 55, photo: bevDietCokeCan, tint: 'silver' },
+  { name: 'Sprite Can', price: 50, mrp: 60, photo: bevSpriteCan, tint: 'green' },
+  { name: 'Coca-Cola Can', price: 50, mrp: 60, photo: bevCokeCan, tint: 'red' },
+  { name: 'Diet Coke Can', price: 50, mrp: 60, photo: bevDietCokeCan, tint: 'silver' },
 ]
 
 // Real customer reviews from our Google Business listing (lightly proofread for spelling/grammar only — no claims added or changed).
