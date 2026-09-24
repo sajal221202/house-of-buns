@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { waLink, RESTAURANT_WHATSAPP_NUMBER } from '../../utils/whatsapp'
 import { syncFranchiseToSheet } from '../../utils/sheetSync'
+import { supabase } from '../../lib/supabaseClient'
 
 export default function FranchiseModal({ onClose }) {
   const [form, setForm] = useState({ name: '', phone: '', city: '', budget: '' })
@@ -18,12 +19,21 @@ export default function FranchiseModal({ onClose }) {
       `City: ${form.city}`,
       `Investment Budget: ${form.budget || 'Not specified'}`,
     ].join('\n')
-    syncFranchiseToSheet({
+    const enquiry = {
       name: form.name,
       phone: form.phone,
       city: form.city,
       budget: form.budget || 'Not specified',
-    })
+    }
+    syncFranchiseToSheet(enquiry)
+    if (supabase) {
+      supabase
+        .from('franchise_enquiries')
+        .insert(enquiry)
+        .then(({ error }) => {
+          if (error) console.error('Failed to save franchise enquiry to Supabase', error)
+        })
+    }
     window.open(waLink(RESTAURANT_WHATSAPP_NUMBER, text), '_blank', 'noopener,noreferrer')
     onClose()
   }
