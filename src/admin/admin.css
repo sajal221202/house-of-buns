@@ -380,7 +380,6 @@
 }
 
 .admin-trendchart-area {
-  fill: url(#none);
   fill: rgba(53, 197, 111, 0.15);
   stroke: none;
 }

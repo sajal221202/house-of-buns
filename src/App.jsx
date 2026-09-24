@@ -11,15 +11,18 @@ import QualityAssured from './components/QualityAssured'
 import Locations from './components/Locations'
 import Footer from './components/Footer'
 import ScrollBurgerProgress from './components/ScrollBurgerProgress'
-import CounterBoardPage from './components/counter/CounterBoardPage'
+import AdminApp from './admin/AdminApp'
 import useScrollReveal from './hooks/useScrollReveal'
 import { OrderProvider } from './context/OrderContext'
 import './App.css'
 import './components/order/order.css'
 import './components/menuBook/menuBook.css'
-import './components/counter/counter.css'
+import './admin/admin.css'
 
-const isCounterPage = typeof window !== 'undefined' && window.location.pathname.replace(/\/+$/, '') === '/counter'
+const isAdminPage =
+  typeof window !== 'undefined' &&
+  (window.location.hostname.startsWith('admin.') ||
+    ['/admin', '/counter'].includes(window.location.pathname.replace(/\/+$/, '')))
 
 function MainSite() {
   useScrollReveal()
@@ -44,7 +47,7 @@ function MainSite() {
 }
 
 function App() {
-  return <OrderProvider>{isCounterPage ? <CounterBoardPage /> : <MainSite />}</OrderProvider>
+  return <OrderProvider>{isAdminPage ? <AdminApp /> : <MainSite />}</OrderProvider>
 }
 
 export default App
