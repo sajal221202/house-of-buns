@@ -614,6 +614,9 @@
   .admin-brand-sub {
     display: none;
   }
+  .admin-brand-name {
+    white-space: nowrap;
+  }
   .admin-nav {
     flex-direction: row;
   }
