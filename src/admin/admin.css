@@ -1,15 +1,15 @@
-/* House of Buns — Admin Portal (dark, tech-dashboard theme) */
+/* House of Buns — Admin Portal (matches the main site's cream/green/butter-paper brand) */
 
 .admin-shell,
 .admin-pin-screen {
-  --admin-bg: #0b0f17;
-  --admin-panel: #131926;
-  --admin-panel-border: #232c3f;
-  --admin-text: #e7ebf3;
-  --admin-text-dim: #8b93a7;
-  --admin-accent: #35c56f;
-  --admin-accent-dim: rgba(53, 197, 111, 0.15);
-  --admin-danger: #ff6161;
+  --admin-bg: var(--cream);
+  --admin-panel: #fffdf8;
+  --admin-panel-border: rgba(18, 61, 36, 0.16);
+  --admin-text: var(--green-darker);
+  --admin-text-dim: rgba(13, 46, 27, 0.58);
+  --admin-accent: var(--green);
+  --admin-accent-dim: rgba(31, 107, 63, 0.12);
+  --admin-danger: #c1442b;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
@@ -18,27 +18,29 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle at 30% 20%, #14203a, var(--admin-bg) 60%);
   padding: 24px;
+  background-image: linear-gradient(160deg, rgba(13, 46, 27, 0.92), rgba(9, 33, 20, 0.95)), url('../assets/pattern-tile.jpg');
+  background-size: cover, 220px 220px;
+  background-blend-mode: normal, soft-light;
 }
 
 .admin-pin-card {
   background: var(--admin-panel);
-  border: 1px solid var(--admin-panel-border);
-  border-radius: 20px;
+  border: 1.5px solid var(--green);
+  border-radius: 24px;
   padding: 40px 32px;
   width: 100%;
   max-width: 360px;
   text-align: center;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 30px 60px rgba(9, 33, 20, 0.35);
 }
 
 .admin-pin-badge {
   display: inline-block;
   background: var(--admin-accent-dim);
-  color: var(--admin-accent);
+  color: var(--green-dark);
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   padding: 6px 14px;
@@ -60,8 +62,8 @@
 
 .admin-pin-card input {
   width: 100%;
-  background: #0e1420;
-  border: 1px solid var(--admin-panel-border);
+  background: var(--cream);
+  border: 1.5px solid var(--admin-panel-border);
   border-radius: 12px;
   padding: 14px;
   font-size: 20px;
@@ -73,7 +75,7 @@
 
 .admin-pin-card input:focus {
   outline: none;
-  border-color: var(--admin-accent);
+  border-color: var(--green);
 }
 
 .admin-pin-error {
@@ -84,8 +86,8 @@
 
 .admin-pin-submit {
   width: 100%;
-  background: var(--admin-accent);
-  color: #06120a;
+  background: var(--green);
+  color: var(--cream);
   border: none;
   border-radius: 12px;
   padding: 14px;
@@ -95,7 +97,7 @@
 }
 
 .admin-pin-submit:hover {
-  filter: brightness(1.08);
+  background: var(--green-dark);
 }
 
 /* Shell layout */
@@ -110,11 +112,13 @@
 .admin-sidebar {
   width: 240px;
   flex-shrink: 0;
-  background: var(--admin-panel);
-  border-right: 1px solid var(--admin-panel-border);
   display: flex;
   flex-direction: column;
   padding: 24px 16px;
+  color: var(--cream);
+  background-image: linear-gradient(170deg, rgba(13, 46, 27, 0.94), rgba(9, 33, 20, 0.97)), url('../assets/pattern-tile.jpg');
+  background-size: cover, 200px 200px;
+  background-blend-mode: normal, soft-light;
 }
 
 .admin-brand {
@@ -133,10 +137,11 @@
 .admin-brand-name {
   font-weight: 700;
   font-size: 15px;
+  color: var(--cream);
 }
 
 .admin-brand-sub {
-  color: var(--admin-text-dim);
+  color: rgba(247, 236, 217, 0.6);
   font-size: 12px;
 }
 
@@ -153,7 +158,7 @@
   gap: 10px;
   background: none;
   border: none;
-  color: var(--admin-text-dim);
+  color: rgba(247, 236, 217, 0.75);
   text-align: left;
   padding: 12px 14px;
   border-radius: 12px;
@@ -164,13 +169,13 @@
 }
 
 .admin-nav-item:hover {
-  background: rgba(255, 255, 255, 0.04);
-  color: var(--admin-text);
+  background: rgba(247, 236, 217, 0.08);
+  color: var(--cream);
 }
 
 .admin-nav-item.is-active {
-  background: var(--admin-accent-dim);
-  color: var(--admin-accent);
+  background: var(--cream);
+  color: var(--green-darker);
 }
 
 .admin-nav-icon {
@@ -189,8 +194,8 @@
 
 .admin-nav-logout {
   background: none;
-  border: 1px solid var(--admin-panel-border);
-  color: var(--admin-text-dim);
+  border: 1px solid rgba(247, 236, 217, 0.3);
+  color: rgba(247, 236, 217, 0.75);
   border-radius: 12px;
   padding: 10px;
   font-size: 13px;
@@ -199,8 +204,8 @@
 }
 
 .admin-nav-logout:hover {
-  color: var(--admin-text);
-  border-color: var(--admin-text-dim);
+  color: var(--cream);
+  border-color: var(--cream);
 }
 
 .admin-main {
@@ -217,6 +222,7 @@
 .admin-topbar h1 {
   font-size: 22px;
   margin: 0;
+  color: var(--green-darker);
 }
 
 .admin-banner {
@@ -225,7 +231,7 @@
   align-items: center;
   gap: 12px;
   background: var(--admin-accent-dim);
-  border: 1px solid var(--admin-accent);
+  border: 1.5px solid var(--green);
   color: var(--admin-text);
   border-radius: 14px;
   padding: 14px 18px;
@@ -246,12 +252,12 @@
 
 .admin-banner-dismiss {
   background: none;
-  border: 1px solid var(--admin-accent);
-  color: var(--admin-accent);
+  border: 1.5px solid var(--green);
+  color: var(--green-dark);
   border-radius: 8px;
   padding: 6px 12px;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   white-space: nowrap;
 }
@@ -267,12 +273,13 @@
 
 .admin-kpi-card {
   background: var(--admin-panel);
-  border: 1px solid var(--admin-panel-border);
+  border: 1.5px solid var(--admin-panel-border);
   border-radius: 16px;
   padding: 18px 20px;
   display: flex;
   flex-direction: column;
   gap: 6px;
+  box-shadow: 0 10px 24px rgba(13, 46, 27, 0.06);
 }
 
 .admin-kpi-card-wide {
@@ -285,7 +292,7 @@
 .admin-kpi-label {
   color: var(--admin-text-dim);
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.03em;
 }
@@ -293,6 +300,7 @@
 .admin-kpi-value {
   font-size: 26px;
   font-weight: 700;
+  color: var(--green-dark);
 }
 
 .admin-kpi-sub {
@@ -311,16 +319,17 @@
 
 .admin-panel {
   background: var(--admin-panel);
-  border: 1px solid var(--admin-panel-border);
+  border: 1.5px solid var(--admin-panel-border);
   border-radius: 16px;
   padding: 20px 22px;
   margin-bottom: 16px;
+  box-shadow: 0 10px 24px rgba(13, 46, 27, 0.06);
 }
 
 .admin-panel h2 {
   font-size: 15px;
   margin: 0 0 16px;
-  color: var(--admin-text);
+  color: var(--green-darker);
 }
 
 .admin-empty {
@@ -352,7 +361,7 @@
 }
 
 .admin-barchart-track {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(18, 61, 36, 0.08);
   border-radius: 999px;
   height: 10px;
   overflow: hidden;
@@ -360,14 +369,15 @@
 
 .admin-barchart-fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--admin-accent), #7de8a6);
+  background: linear-gradient(90deg, var(--green-dark), var(--green));
   border-radius: 999px;
   transition: width 0.4s ease;
 }
 
 .admin-barchart-value {
   text-align: right;
-  font-weight: 600;
+  font-weight: 700;
+  color: var(--green-dark);
   font-variant-numeric: tabular-nums;
 }
 
@@ -380,19 +390,19 @@
 }
 
 .admin-trendchart-area {
-  fill: rgba(53, 197, 111, 0.15);
+  fill: rgba(31, 107, 63, 0.14);
   stroke: none;
 }
 
 .admin-trendchart-line {
   fill: none;
-  stroke: var(--admin-accent);
+  stroke: var(--green);
   stroke-width: 0.6;
   vector-effect: non-scaling-stroke;
 }
 
 .admin-trendchart-dot {
-  fill: var(--admin-accent);
+  fill: var(--green-dark);
 }
 
 .admin-trendchart-labels {
@@ -412,7 +422,7 @@
 .admin-trendchart-value {
   font-size: 11px;
   font-weight: 700;
-  color: var(--admin-text);
+  color: var(--green-dark);
 }
 
 /* Recent orders table */
@@ -441,7 +451,7 @@
 }
 
 .admin-table-row {
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(18, 61, 36, 0.03);
   border-radius: 10px;
 }
 
@@ -456,13 +466,13 @@
 }
 
 .admin-status-preparing {
-  background: rgba(255, 184, 76, 0.15);
-  color: #ffb84c;
+  background: rgba(255, 158, 46, 0.15);
+  color: #b56816;
 }
 
 .admin-status-collected {
-  background: rgba(139, 147, 167, 0.15);
-  color: var(--admin-text-dim);
+  background: rgba(18, 61, 36, 0.1);
+  color: var(--green-dark);
 }
 
 /* Live orders tab */
@@ -484,26 +494,27 @@
   grid-template-columns: 70px 1fr 80px 90px auto auto;
   align-items: center;
   gap: 10px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--admin-panel-border);
+  background: rgba(18, 61, 36, 0.03);
+  border: 1.5px solid var(--admin-panel-border);
   border-radius: 12px;
   padding: 10px 14px;
   font-size: 13px;
 }
 
 .admin-order-row-ready {
-  border-color: var(--admin-accent);
+  border-color: var(--green);
   background: var(--admin-accent-dim);
 }
 
 .admin-order-token {
   font-weight: 700;
+  color: var(--green-dark);
 }
 
 .admin-order-whatsapp,
 .admin-order-collect {
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 700;
   padding: 6px 10px;
   border-radius: 8px;
   white-space: nowrap;
@@ -514,13 +525,17 @@
 
 .admin-order-whatsapp {
   background: rgba(37, 211, 102, 0.15);
-  color: #25d366;
+  color: #1e9450;
 }
 
 .admin-order-collect {
-  background: var(--admin-accent);
-  color: #06120a;
+  background: var(--green);
+  color: var(--cream);
   border: none;
+}
+
+.admin-order-collect:hover {
+  background: var(--green-dark);
 }
 
 /* Franchise leads tab */
@@ -536,8 +551,8 @@
   grid-template-columns: 1fr 1.4fr auto;
   align-items: center;
   gap: 14px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--admin-panel-border);
+  background: rgba(18, 61, 36, 0.03);
+  border: 1.5px solid var(--admin-panel-border);
   border-radius: 12px;
   padding: 14px 16px;
 }
@@ -551,6 +566,7 @@
 .admin-lead-name {
   font-weight: 700;
   font-size: 14px;
+  color: var(--green-darker);
 }
 
 .admin-lead-city {
@@ -573,8 +589,8 @@
 }
 
 .admin-lead-actions select {
-  background: #0e1420;
-  border: 1px solid var(--admin-panel-border);
+  background: var(--cream);
+  border: 1.5px solid var(--admin-panel-border);
   color: var(--admin-text);
   border-radius: 8px;
   padding: 6px 8px;
