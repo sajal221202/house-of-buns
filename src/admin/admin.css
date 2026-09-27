@@ -337,6 +337,30 @@
   font-size: 14px;
 }
 
+/* Recharts tooltip */
+
+.admin-chart-tooltip {
+  background: var(--admin-panel);
+  border: 1.5px solid var(--green);
+  border-radius: 10px;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 12px;
+  box-shadow: 0 10px 24px rgba(13, 46, 27, 0.15);
+}
+
+.admin-chart-tooltip strong {
+  color: var(--green-darker);
+  font-size: 12px;
+}
+
+.admin-chart-tooltip span {
+  color: var(--green-dark);
+  font-weight: 700;
+}
+
 /* Bar chart */
 
 .admin-barchart {
