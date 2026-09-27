@@ -1,10 +1,22 @@
 import { useMemo } from 'react'
+import {
+  ResponsiveContainer,
+  AreaChart,
+  Area,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  BarChart as RBarChart,
+  Bar,
+  Cell,
+} from 'recharts'
 import { useOrder } from '../context/OrderContext'
 import { CURRENCY } from '../data/menu'
-import BarChart from './charts/BarChart'
-import TrendChart from './charts/TrendChart'
 
 const DAY_LABELS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+const GREEN = '#1f6b3f'
+const GREEN_DARK = '#123d24'
 
 function startOfDay(ts) {
   const d = new Date(ts)
@@ -14,6 +26,27 @@ function startOfDay(ts) {
 
 function money(n) {
   return `${CURRENCY}${Math.round(n).toLocaleString('en-IN')}`
+}
+
+function RevenueTooltip({ active, payload, label }) {
+  if (!active || !payload?.length) return null
+  return (
+    <div className="admin-chart-tooltip">
+      <strong>{label}</strong>
+      <span>{money(payload[0].value)}</span>
+    </div>
+  )
+}
+
+function ItemsTooltip({ active, payload }) {
+  if (!active || !payload?.length) return null
+  const p = payload[0]
+  return (
+    <div className="admin-chart-tooltip">
+      <strong>{p.payload.label}</strong>
+      <span>{p.value} sold</span>
+    </div>
+  )
 }
 
 export default function AdminDashboard() {
@@ -85,7 +118,40 @@ export default function AdminDashboard() {
           {orders.length === 0 ? (
             <p className="admin-empty">No orders yet.</p>
           ) : (
-            <TrendChart data={stats.last7} formatValue={money} />
+            <ResponsiveContainer width="100%" height={220}>
+              <AreaChart data={stats.last7} margin={{ top: 8, right: 8, left: -16, bottom: 0 }}>
+                <defs>
+                  <linearGradient id="revenueFill" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor={GREEN} stopOpacity={0.35} />
+                    <stop offset="100%" stopColor={GREEN} stopOpacity={0.02} />
+                  </linearGradient>
+                </defs>
+                <CartesianGrid strokeDasharray="3 3" stroke="rgba(18,61,36,0.1)" vertical={false} />
+                <XAxis
+                  dataKey="label"
+                  tick={{ fontSize: 12, fill: 'rgba(13,46,27,0.58)' }}
+                  axisLine={{ stroke: 'rgba(18,61,36,0.16)' }}
+                  tickLine={false}
+                />
+                <YAxis
+                  tick={{ fontSize: 11, fill: 'rgba(13,46,27,0.58)' }}
+                  axisLine={false}
+                  tickLine={false}
+                  tickFormatter={(v) => `${CURRENCY}${v}`}
+                  width={54}
+                />
+                <Tooltip content={<RevenueTooltip />} cursor={{ stroke: GREEN, strokeWidth: 1 }} />
+                <Area
+                  type="monotone"
+                  dataKey="value"
+                  stroke={GREEN_DARK}
+                  strokeWidth={2}
+                  fill="url(#revenueFill)"
+                  dot={{ r: 3, fill: GREEN_DARK, strokeWidth: 0 }}
+                  activeDot={{ r: 5 }}
+                />
+              </AreaChart>
+            </ResponsiveContainer>
           )}
         </section>
 
@@ -94,7 +160,30 @@ export default function AdminDashboard() {
           {stats.topItems.length === 0 ? (
             <p className="admin-empty">No orders yet.</p>
           ) : (
-            <BarChart data={stats.topItems} formatValue={(v) => `${v}x`} />
+            <ResponsiveContainer width="100%" height={220}>
+              <RBarChart
+                data={stats.topItems}
+                layout="vertical"
+                margin={{ top: 0, right: 16, left: 0, bottom: 0 }}
+              >
+                <CartesianGrid strokeDasharray="3 3" stroke="rgba(18,61,36,0.1)" horizontal={false} />
+                <XAxis type="number" hide />
+                <YAxis
+                  type="category"
+                  dataKey="label"
+                  tick={{ fontSize: 12, fill: 'rgba(13,46,27,0.75)' }}
+                  axisLine={false}
+                  tickLine={false}
+                  width={110}
+                />
+                <Tooltip content={<ItemsTooltip />} cursor={{ fill: 'rgba(31,107,63,0.06)' }} />
+                <Bar dataKey="value" radius={[0, 6, 6, 0]} barSize={16}>
+                  {stats.topItems.map((_, i) => (
+                    <Cell key={i} fill={i === 0 ? GREEN_DARK : GREEN} fillOpacity={1 - i * 0.12} />
+                  ))}
+                </Bar>
+              </RBarChart>
+            </ResponsiveContainer>
           )}
         </section>
       </div>
