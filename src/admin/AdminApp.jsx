@@ -4,6 +4,7 @@ import { unlockAudio, useOrderAlerts, useWakeLock } from './notifications'
 import AdminDashboard from './AdminDashboard'
 import AdminOrders from './AdminOrders'
 import AdminFranchise from './AdminFranchise'
+import './admin.css'
 
 const PIN = import.meta.env.VITE_COUNTER_PIN || '2026'
 const PIN_KEY = 'hob_admin_unlocked'

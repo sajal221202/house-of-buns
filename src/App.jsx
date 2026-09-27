@@ -50,7 +50,17 @@ function MainSite() {
 }
 
 function App() {
-  return <OrderProvider>{isAdminPage ? <AdminApp /> : <MainSite />}</OrderProvider>
+  return (
+    <OrderProvider>
+      {isAdminPage ? (
+        <Suspense fallback={null}>
+          <AdminApp />
+        </Suspense>
+      ) : (
+        <MainSite />
+      )}
+    </OrderProvider>
+  )
 }
 
 export default App
