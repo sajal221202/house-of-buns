@@ -67,7 +67,7 @@ export default function AdminDashboard() {
       })
     })
     const topItems = [...itemTotals.entries()]
-      .map(([label, value]) => ({ label: label.length > 16 ? `${label.slice(0, 15)}…` : label, value }))
+      .map(([label, value]) => ({ label: label.length > 14 ? `${label.slice(0, 13)}…` : label, value }))
       .sort((a, b) => b.value - a.value)
       .slice(0, 5)
 
@@ -165,6 +165,7 @@ export default function AdminDashboard() {
                 data={stats.topItems}
                 layout="vertical"
                 margin={{ top: 0, right: 16, left: 0, bottom: 0 }}
+                barCategoryGap="28%"
               >
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(18,61,36,0.1)" horizontal={false} />
                 <XAxis type="number" hide />
@@ -174,7 +175,8 @@ export default function AdminDashboard() {
                   tick={{ fontSize: 12, fill: 'rgba(13,46,27,0.75)' }}
                   axisLine={false}
                   tickLine={false}
-                  width={110}
+                  width={130}
+                  interval={0}
                 />
                 <Tooltip content={<ItemsTooltip />} cursor={{ fill: 'rgba(31,107,63,0.06)' }} />
                 <Bar dataKey="value" radius={[0, 6, 6, 0]} barSize={16}>
