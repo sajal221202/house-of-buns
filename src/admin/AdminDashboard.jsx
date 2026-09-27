@@ -67,7 +67,7 @@ export default function AdminDashboard() {
       })
     })
     const topItems = [...itemTotals.entries()]
-      .map(([label, value]) => ({ label, value }))
+      .map(([label, value]) => ({ label: label.length > 16 ? `${label.slice(0, 15)}…` : label, value }))
       .sort((a, b) => b.value - a.value)
       .slice(0, 5)
 
