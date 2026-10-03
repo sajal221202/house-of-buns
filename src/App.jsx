@@ -12,20 +12,25 @@ import QualityAssured from './components/QualityAssured'
 import Locations from './components/Locations'
 import Footer from './components/Footer'
 import ScrollBurgerProgress from './components/ScrollBurgerProgress'
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
 import useScrollReveal from './hooks/useScrollReveal'
 import { OrderProvider } from './context/OrderContext'
 import './App.css'
 import './components/order/order.css'
 import './components/menuBook/menuBook.css'
+import './pages/policyPage.css'
 
 // Recharts (used only by the admin dashboard) is heavy — lazy-load the whole
 // admin bundle so public-site visitors never download it.
 const AdminApp = lazy(() => import('./admin/AdminApp'))
 
+const path = typeof window !== 'undefined' ? window.location.pathname.replace(/\/+$/, '') : ''
+
 const isAdminPage =
   typeof window !== 'undefined' &&
-  (window.location.hostname.startsWith('admin.') ||
-    ['/admin', '/counter'].includes(window.location.pathname.replace(/\/+$/, '')))
+  (window.location.hostname.startsWith('admin.') || ['/admin', '/counter'].includes(path))
+
+const isPrivacyPage = path === '/privacy-policy'
 
 function MainSite() {
   useScrollReveal()
@@ -50,6 +55,8 @@ function MainSite() {
 }
 
 function App() {
+  if (isPrivacyPage) return <PrivacyPolicyPage />
+
   return (
     <OrderProvider>
       {isAdminPage ? (

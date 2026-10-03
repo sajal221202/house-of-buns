@@ -8,7 +8,7 @@ import InfoModal from './order/InfoModal'
 
 const USEFUL_LINKS = [
   { key: 'faq', label: 'FAQ' },
-  { key: 'privacy', label: 'Privacy Policy' },
+  { key: 'privacy', label: 'Privacy Policy', href: '/privacy-policy' },
   { key: 'terms', label: 'Terms & Conditions' },
   { key: 'refund', label: 'Refund Policy' },
 ]
@@ -61,13 +61,21 @@ export default function Footer() {
         <div className="footer-col">
           <h4>Useful Links</h4>
           <ul>
-            {USEFUL_LINKS.map((item) => (
-              <li key={item.key}>
-                <button className="footer-link-btn" onClick={() => setOpenModal(item.key)}>
-                  {item.label}
-                </button>
-              </li>
-            ))}
+            {USEFUL_LINKS.map((item) =>
+              item.href ? (
+                <li key={item.key}>
+                  <a className="footer-link-btn" href={item.href}>
+                    {item.label}
+                  </a>
+                </li>
+              ) : (
+                <li key={item.key}>
+                  <button className="footer-link-btn" onClick={() => setOpenModal(item.key)}>
+                    {item.label}
+                  </button>
+                </li>
+              )
+            )}
           </ul>
         </div>
 
