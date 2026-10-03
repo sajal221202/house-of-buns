@@ -445,6 +445,13 @@
   color: var(--white);
 }
 
+.order-pay-error {
+  color: #c1442b;
+  font-size: 13px;
+  font-weight: 600;
+  margin: -12px 0 16px;
+}
+
 .order-actions-row {
   display: flex;
   gap: 12px;

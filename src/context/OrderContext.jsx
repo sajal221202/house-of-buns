@@ -39,6 +39,8 @@ function fromRow(row) {
     prepMinutes: row.prep_minutes,
     counter: row.counter,
     status: row.status,
+    paymentStatus: row.payment_status,
+    cfOrderId: row.cf_order_id,
   }
 }
 
@@ -55,6 +57,8 @@ function toRow(order) {
     prep_minutes: order.prepMinutes,
     counter: order.counter,
     status: order.status,
+    payment_status: order.paymentStatus,
+    cf_order_id: order.cfOrderId,
   }
 }
 
@@ -150,7 +154,7 @@ export function OrderProvider({ children }) {
   const cartCount = cartItems.reduce((s, i) => s + i.qty, 0)
   const cartTotal = cartItems.reduce((s, i) => s + i.qty * i.price, 0)
 
-  async function placeOrder({ paymentMethod }) {
+  async function placeOrder({ paymentMethod, paymentStatus = 'not_required', cfOrderId = null }) {
     const now = Date.now()
     const activeAhead = orders.filter((o) => o.status !== 'collected' && o.readyAt > now).length
     const baseMinutes = 6
@@ -170,6 +174,8 @@ export function OrderProvider({ children }) {
       prepMinutes,
       counter: 'Counter 1 · Dine-In Pickup',
       status: 'preparing',
+      paymentStatus,
+      cfOrderId,
     }
 
     let order

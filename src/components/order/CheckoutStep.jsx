@@ -12,15 +12,52 @@ export default function CheckoutStep({ onBack, onPlaced }) {
   const { customer, cart, cartTotal, placeOrder } = useOrder()
   const [method, setMethod] = useState('upi')
   const [paying, setPaying] = useState(false)
+  const [payError, setPayError] = useState('')
 
-  function handlePay() {
+  async function handlePay() {
     setPaying(true)
-    // Simulated payment processing delay
-    setTimeout(async () => {
-      const order = await placeOrder({ paymentMethod: method })
-      setPaying(false)
+    setPayError('')
+
+    try {
+      if (method === 'counter') {
+        const order = await placeOrder({ paymentMethod: method, paymentStatus: 'not_required' })
+        onPlaced(order)
+        return
+      }
+
+      const res = await fetch('/api/cashfree/create-order', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ amount: cartTotal, name: customer?.name, phone: customer?.phone }),
+      })
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.error || 'Could not start payment')
+
+      const { load } = await import('@cashfreepayments/cashfree-js')
+      const cashfree = await load({ mode: import.meta.env.VITE_CASHFREE_MODE || 'sandbox' })
+
+      const result = await cashfree.checkout({
+        paymentSessionId: data.paymentSessionId,
+        redirectTarget: '_modal',
+      })
+
+      if (result.error) {
+        setPayError('Payment was not completed. Please try again or pay at the counter.')
+        return
+      }
+
+      const order = await placeOrder({
+        paymentMethod: method,
+        paymentStatus: 'pending',
+        cfOrderId: data.orderId,
+      })
       onPlaced(order)
-    }, 900)
+    } catch (err) {
+      console.error(err)
+      setPayError('Something went wrong starting the payment. Please try again.')
+    } finally {
+      setPaying(false)
+    }
   }
 
   return (
@@ -62,6 +99,8 @@ export default function CheckoutStep({ onBack, onPlaced }) {
           </button>
         ))}
       </div>
+
+      {payError && <p className="order-pay-error">{payError}</p>}
 
       <div className="order-actions-row">
         <button className="btn btn-dark" onClick={onBack} disabled={paying}>

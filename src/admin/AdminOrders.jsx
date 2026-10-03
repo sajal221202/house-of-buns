@@ -22,6 +22,7 @@ function OrderRow({ order, now, onCollect }) {
       <span className="admin-order-name">{order.name}</span>
       <span className="admin-order-items">{itemCount} item(s)</span>
       <span className="admin-order-status">{status === 'ready' ? '✅ Ready' : `⏱ ${formatClock(remaining)}`}</span>
+      {order.paymentStatus === 'pending' && <span className="admin-order-payment-pending">⚠ Payment Pending</span>}
       <a
         className="admin-order-whatsapp"
         href={waLink(order.phone, orderReadyText(order))}
