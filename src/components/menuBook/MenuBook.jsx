@@ -11,22 +11,23 @@ function chunk(list, size) {
 }
 
 function buildPages() {
+  // Kept deliberately compact — this is a quick flip-through, not an
+  // exhaustive catalog. Meals/Value Deals/Shareables aren't repeated here
+  // since they're just bundles of the burgers already shown; they stay
+  // browsable in the live ordering flow and the homepage Combos section.
   const pages = [{ kind: 'cover' }]
 
-  chunk(FEATURED_BURGERS, 3).forEach((group) => {
+  chunk(FEATURED_BURGERS, 6).forEach((group) => {
     pages.push({ kind: 'items', label: 'Featured Buns', icon: '🍔', items: group })
   })
-  chunk(SIDES, 4).forEach((group) => {
+  chunk(SIDES, 6).forEach((group) => {
     pages.push({ kind: 'items', label: 'On The Side', icon: '🍟', items: group })
   })
-  chunk(DRINKS, 3).forEach((group) => {
+  chunk(DRINKS, 6).forEach((group) => {
     pages.push({ kind: 'items', label: 'House Specials', icon: '☕', items: group })
   })
-  chunk(GLASS_BOTTLE_DRINKS, 3).forEach((group) => {
-    pages.push({ kind: 'items', label: 'Glass Bottles', icon: '🍾', items: group })
-  })
-  chunk(CAN_DRINKS, 3).forEach((group) => {
-    pages.push({ kind: 'items', label: 'Chilled Cans', icon: '🥤', items: group })
+  chunk([...GLASS_BOTTLE_DRINKS, ...CAN_DRINKS], 6).forEach((group) => {
+    pages.push({ kind: 'items', label: 'Bottles & Cans', icon: '🥤', items: group })
   })
 
   pages.push({ kind: 'back' })

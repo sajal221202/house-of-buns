@@ -1,9 +1,22 @@
 import { useState } from 'react'
-import { FEATURED_BURGERS, SIDES, DRINKS, GLASS_BOTTLE_DRINKS, CAN_DRINKS, CURRENCY } from '../../data/menu'
+import {
+  FEATURED_BURGERS,
+  SIDES,
+  DRINKS,
+  GLASS_BOTTLE_DRINKS,
+  CAN_DRINKS,
+  MEALS,
+  VALUE_DEALS,
+  SHAREABLES,
+  CURRENCY,
+} from '../../data/menu'
 import { useOrder } from '../../context/OrderContext'
 
 const SECTIONS = [
   { key: 'burgers', label: 'Featured Buns', icon: '🍔', items: FEATURED_BURGERS },
+  { key: 'meals', label: 'Meals', icon: '🍱', items: MEALS },
+  { key: 'value-deals', label: 'Value Deals', icon: '💰', items: VALUE_DEALS },
+  { key: 'shareables', label: 'Shareables', icon: '🎉', items: SHAREABLES },
   { key: 'sides', label: 'On The Side', icon: '🍟', items: SIDES },
   { key: 'drinks', label: 'House Specials', icon: '☕', items: DRINKS },
   { key: 'glass-bottles', label: 'Glass Bottles', icon: '🍾', items: GLASS_BOTTLE_DRINKS },
@@ -64,6 +77,7 @@ export default function MenuStep({ onCheckout }) {
                           </div>
                           <div className="order-menu-item-info">
                             <span className="order-menu-item-name">{item.name}</span>
+                            {item.desc && <span className="order-menu-item-desc">{item.desc}</span>}
                             <span className="order-menu-item-price">
                               {CURRENCY}
                               {item.price}

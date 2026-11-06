@@ -321,6 +321,13 @@
   color: var(--near-black);
 }
 
+.order-menu-item-desc {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin: 2px 0;
+}
+
 .order-menu-item-price {
   font-size: 13px;
   color: var(--text-muted);

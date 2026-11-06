@@ -1,11 +1,11 @@
-import { useState } from 'react'
 import { FEATURED_BURGERS } from '../data/menu'
 import MenuBook from './menuBook/MenuBook'
 import { WishlistButton, PrepAndPrice } from './shared/ProductCardBits'
 import CardCarousel from './shared/CardCarousel'
+import { useOrder } from '../context/OrderContext'
 
 export default function FeaturedBurgers() {
-  const [bookOpen, setBookOpen] = useState(false)
+  const { menuBookOpen, openMenuBook, closeMenuBook } = useOrder()
 
   return (
     <section id="menu" className="featured">
@@ -14,7 +14,7 @@ export default function FeaturedBurgers() {
           <h2 className="display featured-title">
             <span aria-hidden="true">👀</span> Featured Buns
           </h2>
-          <button className="btn btn-dark" onClick={() => setBookOpen(true)}>
+          <button className="btn btn-dark" onClick={openMenuBook}>
             View all
           </button>
         </div>
@@ -35,7 +35,7 @@ export default function FeaturedBurgers() {
         />
       </div>
 
-      {bookOpen && <MenuBook onClose={() => setBookOpen(false)} />}
+      {menuBookOpen && <MenuBook onClose={closeMenuBook} />}
     </section>
   )
 }

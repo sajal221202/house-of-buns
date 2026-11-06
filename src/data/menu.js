@@ -1,9 +1,17 @@
 import burgerPatty from '../assets/photos/burger-patty.jpg'
 import burgerVeg2 from '../assets/photos/burger-veg-2.jpg'
 import burgersTable from '../assets/photos/burgers-table.jpg'
+import burgerAlooTikki from '../assets/photos/burger-aloo-tikki.jpg'
+import burgerTandoori from '../assets/photos/burger-tandoori.jpg'
+import burgerMakhani from '../assets/photos/burger-makhani.jpg'
+import burgerChipotle from '../assets/photos/burger-chipotle.jpg'
+import burgerChilliCheese from '../assets/photos/burger-chilli-cheese.jpg'
+import burgerCheeseVeggie from '../assets/photos/burger-cheese-veggie.jpg'
+import burgerTexMex from '../assets/photos/burger-tex-mex.jpg'
 import sideCheeseCoins from '../assets/photos/side-cheese-coins.jpg'
 import sideHerbSticks from '../assets/photos/side-herb-sticks.jpg'
 import sideNachos from '../assets/photos/side-nachos.jpg'
+import sidePlainNachos from '../assets/photos/side-plain-nachos.jpg'
 import sideGarlicBread from '../assets/photos/side-garlic-bread.jpg'
 import sideSaltedFries from '../assets/photos/side-salted-fries.jpg'
 import sidePeriFries from '../assets/photos/side-peri-fries.jpg'
@@ -15,6 +23,9 @@ import bevSpriteCan from '../assets/photos/beverages/bev-sprite-can.png'
 import bevCokeCan from '../assets/photos/beverages/bev-coke-can.png'
 import bevDietCokeCan from '../assets/photos/beverages/bev-diet-coke-can.png'
 import bevColdCoffeePhoto from '../assets/photos/beverages/bev-cold-coffee-photo.jpg'
+import bevClassicCoffee from '../assets/photos/beverages/bev-classic-coffee.jpg'
+import bevHazelnutCoffee from '../assets/photos/beverages/bev-hazelnut-coffee.jpg'
+import bevCaramelCoffee from '../assets/photos/beverages/bev-caramel-coffee.jpg'
 import bevIcedTeaPhoto from '../assets/photos/beverages/bev-iced-tea-photo.jpg'
 import heroBurger from '../assets/photos/hero-burger.png'
 import outletCounter from '../assets/photos/outlet-counter.jpg'
@@ -28,28 +39,61 @@ export function discountPercent(item) {
   return Math.round(((item.mrp - item.price) / item.mrp) * 100)
 }
 
+// Prices below match the official printed menu exactly — no invented
+// discounts/MRPs; if a future revision adds a real strikethrough price, set
+// `mrp` on that item and the existing discount badge will pick it up.
 export const FEATURED_BURGERS = [
-  { name: 'Aloo Tikki', price: 49, mrp: 119, prepTime: '8-10 mins', photo: burgerPatty },
-  { name: 'Cheese Chilli Aloo Tikki', price: 119, mrp: 139, prepTime: '10-12 mins', photo: burgerVeg2 },
-  { name: 'Cheese N Veggies', price: 129, mrp: 139, prepTime: '10-12 mins', photo: burgersTable },
-  { name: 'Chipotle Aloo Tikki', price: 79, mrp: 129, prepTime: '10-12 mins', photo: burgerVeg2 },
-  { name: 'Tandoori Aloo Tikki', price: 69, mrp: 129, prepTime: '10-12 mins', photo: burgersTable },
-  { name: 'Tex Mex', price: 219, mrp: 249, prepTime: '12-14 mins', photo: burgerPatty },
+  { name: 'Aloo Tikki', price: 59, prepTime: '8-10 mins', photo: burgerAlooTikki },
+  { name: 'Tandoori', price: 69, prepTime: '10-12 mins', photo: burgerTandoori },
+  { name: 'Makhani', price: 89, prepTime: '10-12 mins', photo: burgerMakhani },
+  { name: 'Chipotle', price: 89, prepTime: '10-12 mins', photo: burgerChipotle },
+  { name: 'Chilli Cheese', price: 119, prepTime: '10-12 mins', photo: burgerChilliCheese },
+  { name: 'Cheese & Veggie', price: 159, prepTime: '10-12 mins', photo: burgerCheeseVeggie },
+  { name: 'Tex Mex', price: 249, prepTime: '12-14 mins', photo: burgerTexMex },
 ]
 
 export const SIDES = [
-  { name: 'Cheese Coins', price: 129, mrp: 155, prepTime: '8-10 mins', photo: sideCheeseCoins },
-  { name: 'Herb Sticks', price: 129, mrp: 155, prepTime: '8-10 mins', photo: sideHerbSticks },
-  { name: 'Loaded Nachos', price: 129, mrp: 179, prepTime: '10-12 mins', photo: sideNachos },
-  { name: 'Garlic Bread Toasties', price: 129, mrp: 155, prepTime: '8-10 mins', photo: sideGarlicBread },
-  { name: 'Salted Fries', price: 59, mrp: 119, prepTime: '6-8 mins', photo: sideSaltedFries },
-  { name: 'Peri Peri Fries', price: 79, mrp: 129, prepTime: '6-8 mins', photo: sidePeriFries },
-  { name: 'Cheesy Fries', price: 129, mrp: 149, prepTime: '8-10 mins', photo: sideCheesyFries },
+  { name: 'Salted Fries (Medium)', price: 59, prepTime: '6-8 mins', photo: sideSaltedFries },
+  { name: 'Salted Fries (Large)', price: 79, prepTime: '6-8 mins', photo: sideSaltedFries },
+  { name: 'Peri Peri Fries (Medium)', price: 79, prepTime: '6-8 mins', photo: sidePeriFries },
+  { name: 'Peri Peri Fries (Large)', price: 99, prepTime: '6-8 mins', photo: sidePeriFries },
+  { name: 'Cheesy Fries (Medium)', price: 129, prepTime: '8-10 mins', photo: sideCheesyFries },
+  { name: 'Cheesy Fries (Large)', price: 159, prepTime: '8-10 mins', photo: sideCheesyFries },
+  { name: 'Plain Nachos + Salsa', price: 99, prepTime: '8-10 mins', photo: sidePlainNachos },
+  { name: 'Loaded Nachos', price: 129, prepTime: '10-12 mins', photo: sideNachos },
+  { name: 'Garlic Bread Toasties', price: 149, prepTime: '8-10 mins', photo: sideGarlicBread },
+  { name: 'Cheese Coins (5 pcs)', price: 129, prepTime: '8-10 mins', photo: sideCheeseCoins },
+  { name: 'Cheese & Herb Sticks (5 pcs)', price: 129, prepTime: '8-10 mins', photo: sideHerbSticks },
 ]
 
 export const DRINKS = [
-  { name: 'Cold Coffee', price: 69, mrp: 149, prepTime: '4-5 mins', photo: bevColdCoffeePhoto },
-  { name: 'Iced Tea', price: 69, mrp: 119, prepTime: '3-4 mins', photo: bevIcedTeaPhoto },
+  { name: 'Classic Cold Coffee', price: 69, prepTime: '4-5 mins', photo: bevClassicCoffee },
+  { name: 'Hazelnut Cold Coffee', price: 119, prepTime: '4-5 mins', photo: bevHazelnutCoffee },
+  { name: 'Caramel Cold Coffee', price: 119, prepTime: '4-5 mins', photo: bevCaramelCoffee },
+  { name: 'Iced Tea', price: 69, prepTime: '3-4 mins', photo: bevIcedTeaPhoto },
+]
+
+// Every meal = 1 burger + Medium Salted Fries + a soft drink.
+export const MEALS = [
+  { name: 'Aloo Tikki Meal', price: 109, prepTime: '10-12 mins', photo: burgerAlooTikki, desc: '1 Aloo Tikki Burger + Medium Salted Fries + Soft Drink' },
+  { name: 'Tandoori Meal', price: 119, prepTime: '10-12 mins', photo: burgerTandoori, desc: '1 Tandoori Burger + Medium Salted Fries + Soft Drink' },
+  { name: 'Makhani Meal', price: 139, prepTime: '10-12 mins', photo: burgerMakhani, desc: '1 Makhani Burger + Medium Salted Fries + Soft Drink' },
+  { name: 'Chipotle Meal', price: 139, prepTime: '10-12 mins', photo: burgerChipotle, desc: '1 Chipotle Burger + Medium Salted Fries + Soft Drink' },
+  { name: 'Chilli Cheese Meal', price: 169, prepTime: '10-12 mins', photo: burgerChilliCheese, desc: '1 Chilli Cheese Burger + Medium Salted Fries + Soft Drink' },
+  { name: 'Cheese & Veggie Meal', price: 209, prepTime: '10-12 mins', photo: burgerCheeseVeggie, desc: '1 Cheese & Veggie Burger + Medium Salted Fries + Soft Drink' },
+  { name: 'Tex Mex Meal', price: 299, prepTime: '12-14 mins', photo: burgerTexMex, desc: '1 Tex Mex Burger + Medium Salted Fries + Soft Drink' },
+]
+
+export const VALUE_DEALS = [
+  { name: 'House Value Meal', price: 99, prepTime: '10-12 mins', photo: burgerAlooTikki, desc: 'Aloo Tikki Burger + Medium Salted Fries + Soft Drink' },
+  { name: '2 Buns Combo', price: 99, prepTime: '10-12 mins', photo: burgersTable, desc: '2 Burgers' },
+  { name: 'Coffee Break', price: 99, prepTime: '6-8 mins', photo: bevClassicCoffee, desc: 'Classic Cold Coffee + Medium Salted Fries' },
+]
+
+export const SHAREABLES = [
+  { name: 'Buns Duo', price: 219, prepTime: '14-16 mins', photo: burgersTable, desc: '2 Burgers + 2 Medium Fries + 2 Soft Drinks' },
+  { name: 'Buns 4', price: 399, prepTime: '16-18 mins', photo: burgersTable, desc: '4 Burgers + 2 Large Fries + 4 Soft Drinks' },
+  { name: 'Buns Party', price: 499, prepTime: '18-20 mins', photo: burgersTable, desc: '4 Burgers + 2 Large Peri Peri Fries + Loaded Nachos + 4 Soft Drinks' },
 ]
 
 export const GLASS_BOTTLE_DRINKS = [

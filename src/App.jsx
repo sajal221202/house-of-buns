@@ -4,6 +4,7 @@ import Hero from './components/Hero'
 import FeelTheHype from './components/FeelTheHype'
 import ArtisanalStack from './components/ArtisanalStack'
 import FeaturedBurgers from './components/FeaturedBurgers'
+import MealsAndCombos from './components/MealsAndCombos'
 import Sides from './components/Sides'
 import Checkerboard from './components/Checkerboard'
 import Drinks from './components/Drinks'
@@ -12,6 +13,7 @@ import QualityAssured from './components/QualityAssured'
 import Locations from './components/Locations'
 import Footer from './components/Footer'
 import ScrollBurgerProgress from './components/ScrollBurgerProgress'
+import FloatingCart from './components/FloatingCart'
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
 import useScrollReveal from './hooks/useScrollReveal'
 import { OrderProvider } from './context/OrderContext'
@@ -41,6 +43,7 @@ function MainSite() {
       <Hero />
       <FeelTheHype />
       <FeaturedBurgers />
+      <MealsAndCombos />
       <Sides />
       <Drinks />
       <Checkerboard />
@@ -50,6 +53,7 @@ function MainSite() {
       <Locations />
       <Footer />
       <ScrollBurgerProgress />
+      <FloatingCart />
     </>
   )
 }

@@ -67,6 +67,7 @@ export function OrderProvider({ children }) {
   const [cart, setCart] = useState({})
   const [orders, setOrders] = useState([])
   const [orderModalOpen, setOrderModalOpen] = useState(false)
+  const [menuBookOpen, setMenuBookOpen] = useState(false)
   const [wishlist, setWishlist] = useState(() => loadJSON(WISHLIST_KEY, []))
 
   useEffect(() => {
@@ -220,6 +221,9 @@ export function OrderProvider({ children }) {
     orderModalOpen,
     openOrderModal: () => setOrderModalOpen(true),
     closeOrderModal: () => setOrderModalOpen(false),
+    menuBookOpen,
+    openMenuBook: () => setMenuBookOpen(true),
+    closeMenuBook: () => setMenuBookOpen(false),
     cart: cartItems,
     cartCount,
     cartTotal,

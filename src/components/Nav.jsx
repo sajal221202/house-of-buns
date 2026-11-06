@@ -17,7 +17,14 @@ export default function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [promoOpen, setPromoOpen] = useState(false)
   const [franchiseOpen, setFranchiseOpen] = useState(false)
-  const { orderModalOpen, openOrderModal, closeOrderModal } = useOrder()
+  const { orderModalOpen, openOrderModal, closeOrderModal, openMenuBook } = useOrder()
+
+  function handleLinkClick(e, link) {
+    if (link.label !== 'Menu') return
+    e.preventDefault()
+    document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' })
+    openMenuBook()
+  }
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -36,7 +43,7 @@ export default function Nav() {
         <Logo />
         <nav className="nav-links">
           {LINKS.map((l) => (
-            <a href={l.href} key={l.label}>
+            <a href={l.href} key={l.label} onClick={(e) => handleLinkClick(e, l)}>
               {l.label}
             </a>
           ))}
@@ -67,7 +74,14 @@ export default function Nav() {
       {mobileOpen && (
         <div className="nav-mobile">
           {LINKS.map((l) => (
-            <a href={l.href} key={l.label} onClick={closeMobile}>
+            <a
+              href={l.href}
+              key={l.label}
+              onClick={(e) => {
+                handleLinkClick(e, l)
+                closeMobile()
+              }}
+            >
               {l.label}
             </a>
           ))}
