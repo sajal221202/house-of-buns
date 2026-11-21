@@ -2,15 +2,23 @@ import { useState } from 'react'
 import { CURRENCY } from '../../data/menu'
 import { useOrder } from '../../context/OrderContext'
 
-const PAYMENT_METHODS = [
-  { key: 'upi', label: 'UPI' },
-  { key: 'card', label: 'Card' },
-  { key: 'counter', label: 'Pay at Counter' },
-]
+// Cashfree keys aren't configured on the server yet — keep UPI/Card hidden
+// until real keys are added, so customers are never offered a payment
+// method that's guaranteed to fail. Flip VITE_CASHFREE_ENABLED=true once
+// CASHFREE_APP_ID/CASHFREE_SECRET_KEY are set in Vercel to bring them back.
+const CASHFREE_ENABLED = import.meta.env.VITE_CASHFREE_ENABLED === 'true'
+
+const PAYMENT_METHODS = CASHFREE_ENABLED
+  ? [
+      { key: 'upi', label: 'UPI' },
+      { key: 'card', label: 'Card' },
+      { key: 'counter', label: 'Pay at Counter' },
+    ]
+  : [{ key: 'counter', label: 'Pay at Counter' }]
 
 export default function CheckoutStep({ onBack, onPlaced }) {
   const { customer, cart, cartTotal, placeOrder } = useOrder()
-  const [method, setMethod] = useState('upi')
+  const [method, setMethod] = useState(CASHFREE_ENABLED ? 'upi' : 'counter')
   const [paying, setPaying] = useState(false)
   const [payError, setPayError] = useState('')
 
